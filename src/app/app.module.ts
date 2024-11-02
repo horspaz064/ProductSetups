@@ -14,7 +14,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterOutlet
+    RouterOutlet,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
