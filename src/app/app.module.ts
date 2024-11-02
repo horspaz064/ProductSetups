@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Input, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,8 @@ import { NewProductTemplateComponent } from './new-product-template/new-product-
 import { NewTemplateComponent } from './new-product-template/new-template/new-template.component';
 import { NewSubCategory } from './new-sub-category/new-sub-category.component';
 import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child-sub-category.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,9 @@ import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child
     BrowserModule,
     AppRoutingModule,
     RouterOutlet,
+    CommonModule,
+    FormsModule
+
     
   ],
   providers: [],
