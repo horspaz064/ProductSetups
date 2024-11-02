@@ -1,0 +1,26 @@
+
+table{
+  border: 2px solid black;
+  width: 500px;
+  margin-top : 20px
+}
+
+thead{
+  border: 2px solid black;
+}
+tr{
+  border: 2px solid black;
+}
+.btn-td{
+  gap: 5px;
+  display: grid;
+  display: flex;
+  float: right;
+}
+.btn1{
+  color: white !important;
+  text-decoration: none;
+
+}
+
+
