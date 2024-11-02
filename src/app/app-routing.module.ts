@@ -5,6 +5,7 @@ import { NewProductTemplateComponent } from './new-product-template/new-product-
 import { NewSubCategory } from './new-sub-category/new-sub-category.component';
 import { NewTemplateComponent } from './new-product-template/new-template/new-template.component';
 import { CreateNewCategoryComponent } from './new-category/create-new-category/create-new-category.component';
+import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child-sub-category.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: "createnewcategory",
     component: CreateNewCategoryComponent
+  },
+  {
+    path: "child-sub",
+    component: ChildNewSubCategory,
   },
   {
     path: "creatednewsubcategory",
