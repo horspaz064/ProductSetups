@@ -4,11 +4,16 @@ import { NewCategoryComponent } from './new-category/new-category.component';
 import { NewProductTemplateComponent } from './new-product-template/new-product-template.component';
 import { NewSubCategory } from './new-sub-category/new-sub-category.component';
 import { NewTemplateComponent } from './new-product-template/new-template/new-template.component';
+import { CreateNewCategoryComponent } from './new-category/create-new-category/create-new-category.component';
 
 const routes: Routes = [
   {
     path: 'creatednewcategory',
     component: NewCategoryComponent
+  },
+  {
+    path: "createnewcategory",
+    component: CreateNewCategoryComponent
   },
   {
     path: "creatednewsubcategory",
