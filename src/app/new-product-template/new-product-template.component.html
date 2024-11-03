@@ -1,38 +1,20 @@
-<!-- <button class="btn btn-success" ><a class="btn1" routerLink="/newtemplatedpage">Created New Product Template</a></button>
-<table class="table">
+<button class="btn btn-success" ><a class="btn1" routerLink="/newtemplatedpage">Created New Product Template</a></button>
+<table>
   <thead>
     <tr>
       <th>Name</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Template 1</td>
-      <div class="btn-td">
-        <button class="btn btn-success"><a class="btn1" routerLink="/newtemplatedpage">Clone</a></button>
-        <button class="btn btn-info"><a class="btn1" routerLink="/newtemplatedpage">Edit</a></button>
-        <button class="btn btn-danger"><a>Disable</a></button>
-      </div>
-    </tr> 
+    <tr *ngFor="let product of products; let i = index">
+      <td>template {{ i + 1 }}</td>
+      <button class="btn btn-success"><a class="btn1" routerLink="/newtemplatedpage">Clone</a></button>
+      <button class="btn btn-info"><a class="btn1" routerLink="/newtemplatedpage">Edit</a></button>
+      <button class="btn btn-danger"><a>Disable</a></button>
+    </tr>
   </tbody>
 </table>
- -->
 
- <div>
-  <button><a routerLink="/newtemplatedpage">Create New Product Template</a></button>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products; let i = index">
-        <td>template {{ i + 1 }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
 
 
 

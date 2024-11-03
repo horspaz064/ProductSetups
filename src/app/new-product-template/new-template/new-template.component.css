@@ -1,4 +1,4 @@
-.container{
+/* .container{
   width: 100%;
   height: 100%
 }
@@ -35,4 +35,14 @@
 }
 
 
+ */
 
+
+ #product-template {
+  border: 2px dashed #007bff; /* Blue dashed border */
+  min-height: 200px; /* Minimum height for the drop area */
+}
+
+.field {
+  margin-bottom: 10px; /* Space between fields */
+}
