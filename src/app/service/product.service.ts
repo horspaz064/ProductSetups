@@ -4,7 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root' // This makes the service available application-wide
 })
 export class ProductService {
-  saveProductTemplates(templates: { category: string; fieldType: string; }[]) {
+  updateProduct(newProduct: { Category: string; Subcategory: string; }) {
+    throw new Error("Method not implemented.");
+  }
+  getProductTemplates() {
     throw new Error("Method not implemented.");
   }
   private products: { Category: string; Subcategory: string }[] = [];
@@ -14,7 +17,7 @@ export class ProductService {
   }
 
   // Load products from localStorage
-  loadProducts() {
+  private loadProducts() {
     const storedProducts = localStorage.getItem('products');
     this.products = storedProducts ? JSON.parse(storedProducts) : [];
   }
@@ -31,7 +34,9 @@ export class ProductService {
   }
 
   // Save the current product list to localStorage
-  saveProducts() {
+  private saveProducts() {
     localStorage.setItem('products', JSON.stringify(this.products));
   }
+
+  
 }
