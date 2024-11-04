@@ -23,6 +23,7 @@
     "bootstrap-icons": "^1.11.3",
     "jquery": "^3.7.1",
     "jquery-ui": "^1.14.1",
+    "popper.js": "^1.16.1",
     "product-setups": "file:",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
