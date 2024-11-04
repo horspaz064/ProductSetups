@@ -6,6 +6,7 @@ import { NewSubCategory } from './new-sub-category/new-sub-category.component';
 import { NewTemplateComponent } from './new-product-template/new-template/new-template.component';
 import { CreateNewCategoryComponent } from './new-category/create-new-category/create-new-category.component';
 import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child-sub-category.component';
+import { ControlSubCategory } from './new-sub-category/control-sub-category/control-sub-category.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'newtemplatedpage',
     component: NewTemplateComponent
+  },
+  {
+    path: 'control-sub',
+    component: ControlSubCategory
   }
 ];
 

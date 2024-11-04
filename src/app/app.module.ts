@@ -13,15 +13,16 @@ import { NewSubCategory } from './new-sub-category/new-sub-category.component';
 import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child-sub-category.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ControlSubCategory } from './new-sub-category/control-sub-category/control-sub-category.component';
 
 @NgModule({
   declarations: [
     AppComponent,NavbarComponent,
     NewCategoryComponent,CreateNewCategoryComponent,
     NewSubCategory, ChildNewSubCategory,
-    NewProductTemplateComponent,NewTemplateComponent
-    
-  
+    NewProductTemplateComponent,NewTemplateComponent,ControlSubCategory
+
+
   ],
   imports: [
     BrowserModule,
@@ -29,8 +30,8 @@ import { FormsModule } from '@angular/forms';
     RouterOutlet,
     CommonModule,
     FormsModule,
-  
-    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
