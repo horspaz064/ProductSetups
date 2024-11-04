@@ -24,7 +24,7 @@
         </thead>
 
         <tbody>
-          <tr>
+          <!-- <tr>
             <th>IPhone</th>
             <td>
               <button class="btn btn-success mr-2">Clone</button>
@@ -32,13 +32,16 @@
               <button class="btn btn-danger">Disable</button>
             </td>
 
+          </tr> -->
+
+          <tr *ngFor="let product of products; let i = index">
+            <td>{{product.Category}}</td>
+            <button class="btn btn-success"><a >Clone</a></button>
+            <button class="btn btn-info"><a >Edit</a></button>
+            <button class="btn btn-danger"><a>Disable</a></button>
           </tr>
-
         </tbody>
-
       </table>
     </div>
   </div>
-
 </section>
-

@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root' // This makes the service available application-wide
 })
 export class ProductService {
+  saveProductTemplates(templates: { category: string; fieldType: string; }[]) {
+    throw new Error("Method not implemented.");
+  }
   private products: { Category: string; Subcategory: string }[] = [];
 
   constructor() {

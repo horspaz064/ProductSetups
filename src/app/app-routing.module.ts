@@ -9,6 +9,11 @@ import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'creatednewcategory',
+    pathMatch: 'full'
+  },
+  {
     path: 'creatednewcategory',
     component: NewCategoryComponent
   },

@@ -56,51 +56,55 @@
 </div>
 
 
+
 <div class="container">
   <div class="row">
     <div class="card">
       <div class="form row">
-        <div class="col-6">
-          <label>Category</label>
-          <input type="text" class="form-control dropdown-toggle" />
-        </div>
-        <div class="col-6">
-          <label>Category</label>
-          <input type="text" class="form-control" />
-        </div>
         <div class="mt-2">
           <label>Name</label>
-          <input type="text" class="form-control" />
+          <input type="text" [(ngModel)]="Category" placeholder="Category" class="form-control" />
+         
         </div>
       </div>
 
       <div class="row mt-5">
-        <div class="col-6">
+        <div class="col-12 col-lg-6 col-md-12">
           <h5>Control</h5>
           <div class="card2 gap-2 d-flex flex-column align-items-center">
-            <div draggable="true" class="form-control control">Textbox</div>
-            <div draggable="true" class="form-control control">Bumberic</div>
-            <div draggable="true" class="form-control control">Date Picker</div>
-            <div draggable="true" class="form-control control">
-              <textarea class="form-control"
-                        draggable="true">Textarea</textarea>
+            <div>
+              <input type="text" value="Textbox" class="form-control control" data-type="textbox" draggable="true" />
+            </div>
+            <div>
+              <input type="text" value="Numeric" class="form-control control" data-type="numeric" draggable="true" />
+            </div>
+            <div>
+              <input type="date" value="Date" class="form-control control" data-type="date" draggable="true" />
+            </div>
+            <div>
+              <textarea class="form-control control" data-type="textarea" draggable="true"></textarea>
+            </div>
+            <div>
+              <input type="button" value="Button" class="form-control control" data-type="button" draggable="true" />
             </div>
           </div>
         </div>
-        <div class="col-6">
+
+        <div class="col-12 col-lg-6 col-md-12">
           <h5>Product Template</h5>
-          <div class="card3 col-6 d-flex justify-content-center align-items-center"
-               style="border: 2px solid #28a745; padding: 20px; min-height: 300px;">
+          <div id="product-template" class="card3 col-6 d-flex justify-content-center align-items-center flex-column">
 
           </div>
           <div class="float-end" style="float: left">
-            <button class="btn btn-warning"><a routerLink="/creatednewproducttemplate">Cancel</a></button>
-            <button class="btn btn-success">Save</button>
+       <button><a routerLink="/creatednewcategory">Cancel</a></button>
+       <button (click)="addProduct()">Save</button>
+       <button class="btn btn-primary mr-2" (click)="saveTemplate()">Save</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 

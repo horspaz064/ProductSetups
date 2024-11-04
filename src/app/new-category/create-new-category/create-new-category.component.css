@@ -8,3 +8,13 @@
 .lilst-group input{
   margin:10px;
 }
+
+#product-template {
+  border: 2px dashed #007bff; /* Blue dashed border */
+  min-height: 400px; /* Minimum height for the drop area */
+  min-width: 400px;
+}
+
+.field {
+  margin-bottom: 10px; /* Space between fields */
+}
