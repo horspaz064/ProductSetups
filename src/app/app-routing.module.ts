@@ -6,7 +6,11 @@ import { NewSubCategory } from './new-sub-category/new-sub-category.component';
 import { NewTemplateComponent } from './new-product-template/new-template/new-template.component';
 import { CreateNewCategoryComponent } from './new-category/create-new-category/create-new-category.component';
 import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child-sub-category.component';
+<<<<<<< HEAD
 import { CreateNewProductComponent } from './create-new-product/create-new-product.component';
+=======
+import { ControlSubCategory } from './new-sub-category/control-sub-category/control-sub-category.component';
+>>>>>>> ceafca68f4c9ef2f486b4969183e31ffe43b0627
 
 const routes: Routes = [
   {
@@ -39,8 +43,13 @@ const routes: Routes = [
     component: NewTemplateComponent
   },
   {
+<<<<<<< HEAD
     path:'createnewproduct',
     component:CreateNewProductComponent
+=======
+    path: 'control-sub',
+    component: ControlSubCategory
+>>>>>>> ceafca68f4c9ef2f486b4969183e31ffe43b0627
   }
 ];
 

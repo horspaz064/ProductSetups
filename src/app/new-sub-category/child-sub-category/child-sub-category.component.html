@@ -1,16 +1,76 @@
-
 <div class="container">
   <div class="row">
     <!--Create new sub Category-->
-    <div class="my-5 w-50 mx-auto border border-2 text-center">
+    <div class="my-5 mx-auto border border-2 text-center">
       <h1 class="display-5 fw-bold text-success">Create New Sub Category</h1>
     </div>
 
     <!--Search selecr Category more-->
 
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+    <form class="d-flex text-center" role="search">
+      <div class="container">
+        <div class="dropdown">
+          <button
+            class="btn btn-outline-secondary border-3 dropdown-toggle px-5 py-4 text-dark fw-bold mx-auto"
+            type="button"
+            id="multiSelectDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Select hear
+          </button>
+          <ul class="dropdown-menu text-center form-multi-select" aria-labelledby="multiSelectDropdown" multiple data-coreui-search="global">
+            <li>
+              <label>
+                <input type="checkbox" value="category 1" />
+                Category 1
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" value="categroy 2" />
+                Category 2
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" value="category 3" />
+                Category 3
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" value="category 4" />
+                Category 4
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" value="category 5" />
+                Category 5
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" value="category 6" />
+                Category 6
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" value="category 7" />
+                Category 7
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" value="category 8" />
+                category 8
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
     </form>
 
     <!--Create New Category Page-->
@@ -21,6 +81,9 @@
             <h1 class="fw-bold display-5">Control</h1>
             <div class="border border-2 mx-auto w-50 my-5">
               <!----------------- Add new Category --------------------->
+
+
+
             </div>
           </div>
         </div>
@@ -29,6 +92,9 @@
             <h1 class="fw-bold display-5">Product Template</h1>
             <div class="border border-2 mx-auto w-50 my-5">
               <!----------------- Disable Category --------------------->
+
+
+
             </div>
           </div>
         </div>
@@ -37,4 +103,3 @@
     </div>
   </div>
 </div>
-
