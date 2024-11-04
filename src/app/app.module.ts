@@ -16,12 +16,14 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,NavbarComponent,
-    NewCategoryComponent,CreateNewCategoryComponent,
-    NewSubCategory, ChildNewSubCategory,
-    NewProductTemplateComponent,NewTemplateComponent
-    
-  
+    AppComponent,
+    NavbarComponent,
+    NewCategoryComponent,
+    CreateNewCategoryComponent,
+    NewSubCategory,
+    ChildNewSubCategory,
+    NewProductTemplateComponent,
+    NewTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,10 +31,8 @@ import { FormsModule } from '@angular/forms';
     RouterOutlet,
     CommonModule,
     FormsModule,
-  
-    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
