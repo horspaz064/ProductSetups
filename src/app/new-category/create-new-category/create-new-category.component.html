@@ -1,15 +1,15 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <div class="border p-4 rounded">
     <h2>Create New Category Page</h2>
     <form>
-      <!-- Category Name -->
+      Category Name
       <div class="form-group">
         <label for="categoryName">Name</label>
         <input type="text" class="form-control" id="categoryName" placeholder="Enter category name">
       </div>
 
       <div class="row">
-        <!-- Controls -->
+        Controls
         <div class="col-md-3">
           <div class="card">
             <div class="card-header">Control</div>
@@ -36,7 +36,7 @@
           </div>
         </div>
 
-        <!-- Product Template -->
+        Product Template
         <div class="col-md-9">
           <div class="card">
             <div class="card-header">Product Template</div>
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <!-- Save and Cancel Buttons -->
+      Save and Cancel Buttons
       <div class=" two-btn mt-5 d-flex justify-content-end">
         <button class="btn btn-secondary mr-2">Cancel</button>
         <button class="btn btn-primary mr-2">Save</button>
@@ -53,7 +53,7 @@
 
     </form>
   </div>
-</div>
+</div> -->
 
 
 
@@ -63,8 +63,10 @@
       <div class="form row">
         <div class="mt-2">
           <label>Name</label>
-          <input type="text" [(ngModel)]="Category" placeholder="Category" class="form-control" />
-         
+          <input type="text" [(ngModel)]="Category" [(ngModel)]="category" placeholder="Category"
+            class="form-control"  [ngClass]="{'is-invalid': isNameEmpty}"
+            (blur)="checkNameField()" />
+
         </div>
       </div>
 
@@ -94,11 +96,12 @@
           <h5>Product Template</h5>
           <div id="product-template" class="card3 col-6 d-flex justify-content-center align-items-center flex-column">
 
+         
+
           </div>
           <div class="float-end" style="float: left">
-       <button><a routerLink="/creatednewcategory">Cancel</a></button>
-       <button (click)="addProduct()">Save</button>
-       <button class="btn btn-primary mr-2" (click)="saveTemplate()">Save</button>
+            <button><a routerLink="/creatednewcategory">Cancel</a></button>
+            <button (click)="addProduct()">Save</button>
           </div>
         </div>
       </div>
