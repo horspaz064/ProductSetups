@@ -25,16 +25,11 @@ export class NewCategoryComponent implements OnInit {
   }
 
   cloneProduct(product: { Category: string; Subcategory: string }) {
-    // Create a new product object with .copy appended to the name
     const clonedProduct = {
       Category: product.Category + '.copy',
-      Subcategory: product.Subcategory // Adjust if necessary
+      Subcategory: product.Subcategory 
     };
-
-    // Add the cloned product to the product service
     this.productService.addProduct(clonedProduct);
-
-    // Optionally, update the local product list to reflect the change
     this.loadProducts();
   }
 
