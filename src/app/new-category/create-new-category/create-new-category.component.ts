@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CreateNewCategoryComponent implements OnInit {
   Category: string = '';
-  Subcategory: string = '';
+  Numeric: string = '';
   droppedItems: { field: string; model: 'Category' | 'Numeric' | 'Textarea'; value: string }[] = [];
   isEditMode = false;
   productIndex: number | null = null;
@@ -28,11 +28,11 @@ export class CreateNewCategoryComponent implements OnInit {
     const state = history.state;
     if (state && state.product) {
       this.Category = state.product.Category;
-      this.Subcategory = state.product.Subcategory;
+      this.Numeric = state.product.Numeric;
       this.droppedItems = state.product.droppedItems || [];
       this.isEditMode = true;
       this.productIndex = this.productService.getProducts().findIndex(prod =>
-        prod.Category === this.Category && prod.Subcategory === this.Subcategory
+        prod.Category === this.Category && prod.Numeric === this.Numeric
       );
     }
   }
@@ -54,7 +54,7 @@ export class CreateNewCategoryComponent implements OnInit {
     if (fieldName) {
       let value = '';
       if (fieldName === 'Category') value = this.Category;
-      if (fieldName === 'Numeric' || fieldName === 'Textarea') value = this.Subcategory;
+      if (fieldName === 'Numeric' || fieldName === 'Textarea') value = this.Numeric;
 
       this.droppedItems.push({ field: fieldName, model: fieldName, value });
 
@@ -81,7 +81,7 @@ export class CreateNewCategoryComponent implements OnInit {
 
     const newProduct = {
       Category: this.Category,
-      Subcategory: this.Subcategory,
+      Numeric: this.Numeric,
       droppedItems: this.droppedItems
     };
 
@@ -98,7 +98,7 @@ export class CreateNewCategoryComponent implements OnInit {
   }
 
   getDroppedItemsKey() {
-    return `droppedItems_${this.Category}_${this.Subcategory}`;
+    return `droppedItems_${this.Category}_${this.Numeric}`;
   }
 
   removeItem(index: number) {
@@ -108,7 +108,7 @@ export class CreateNewCategoryComponent implements OnInit {
 
   resetForm() {
     this.Category = '';
-    this.Subcategory = '';
+    this.Numeric = '';
     this.droppedItems = [];
     this.submitted = false;
     this.duplicateCategory = false;

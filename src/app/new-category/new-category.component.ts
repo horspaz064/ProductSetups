@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class NewCategoryComponent implements OnInit {
   products: {
     Category: string;
-    Subcategory: string;
+    Numeric: string;
     droppedItems: {
       field: string;
       model: 'Category' | 'Numeric' | 'Textarea';
@@ -32,7 +32,7 @@ export class NewCategoryComponent implements OnInit {
 
   editProduct(product: {
     Category: string;
-    Subcategory: string;
+    Numeric: string;
     droppedItems: {
       field: string;
       model: 'Category' | 'Numeric' | 'Textarea';
@@ -46,7 +46,7 @@ export class NewCategoryComponent implements OnInit {
 
   cloneProduct(product: {
     Category: string;
-    Subcategory: string;
+    Numeric: string;
     droppedItems: {
       field: string;
       model: 'Category' | 'Numeric' | 'Textarea';
@@ -66,7 +66,7 @@ export class NewCategoryComponent implements OnInit {
 
     const clonedProduct = {
       Category: newName,
-      Subcategory: product.Subcategory,
+      Numeric: product.Numeric,
       droppedItems: product.droppedItems.map(item => ({ ...item }))
     };
 

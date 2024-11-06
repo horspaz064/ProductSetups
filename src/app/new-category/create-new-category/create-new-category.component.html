@@ -43,7 +43,7 @@
           <ng-container *ngIf="item.field === 'Numeric'; else date">
             <label class="form-label">{{ item.field }}</label>
             <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
-            <input type="text" class="form-control" placeholder="{{ item.field }} Input" [(ngModel)]="Subcategory" />
+            <input type="text" class="form-control" placeholder="{{ item.field }} Input" [(ngModel)]="Numeric" />
           </ng-container>
         </ng-template>
 

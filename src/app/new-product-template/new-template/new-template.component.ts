@@ -11,19 +11,10 @@ declare var $:any;
 })
 
 export class NewTemplateComponent implements OnInit{
-  Category: string = '';
-  Subcategory: string = '';
+
 
   constructor(private productService: ProductService, private router: Router) {
  
-  }
-
-  addProduct() {
-    const newProduct = { Category: this.Category, Subcategory: this.Subcategory };
-    this.productService.addProduct(newProduct); 
-    this.Category = '';
-    this.Subcategory = '';
-    this.router.navigate(['/creatednewproducttemplate']); 
   }
 
   ngOnInit(): void {
