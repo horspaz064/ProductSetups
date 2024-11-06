@@ -1,58 +1,76 @@
-<div>
-  <h2>Create New Product Template Page</h2>
-  <input type="text" [(ngModel)]="Category" placeholder="Categoryname"
-    [ngClass]="{ 'bg-danger text-white': duplicateCategory || (submitted && Category === '') }"
-    [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && Category === '' ? 'Please input' : 'Categoryname')" />
-  <button><a routerLink="/creatednewcategory">Cancel</a></button>
-  <button (click)=" addProduct()">{{ isEditMode ? 'Update' : 'Save' }}</button>
-</div>
+<div class="container mt-4">
+  <h2 class="mb-4">Create New Product Template Page</h2>
 
-<div class="row mt-5">
-  <div class="col-6 card1">
-    <h1>Control</h1>
-    <div *ngFor="let control of controlItems" class="draggable" draggable="true"
-      (dragstart)="onDragStart($event, control)">
-      <label>{{ control.name }}</label>
+  <!-- Category Input -->
+  <div class="mb-3">
+    <input 
+      type="text" 
+      [(ngModel)]="Category" 
+      class="form-control" 
+      placeholder="Categoryname"
+      [ngClass]="{ 'bg-danger text-white': duplicateCategory || (submitted && Category === '') }"
+      [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && Category === '' ? 'Please input' : 'Categoryname')" />
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="mb-4">
+    <button class="btn btn-secondary me-2">
+      <a routerLink="/creatednewcategory" class="text-white text-decoration-none">Cancel</a>
+    </button>
+    <button (click)="addProduct()" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
+  </div>
+
+  <div class="row mt-5">
+    <!-- Control Panel -->
+    <div class="col-md-6 card p-3">
+      <h4>Control</h4>
+      <div *ngFor="let control of controlItems" class="draggable p-2 mb-2 border bg-light" draggable="true" (dragstart)="onDragStart($event, control)">
+        <label>{{ control.name }}</label>
+      </div>
+    </div>
+
+    <!-- Input Template Panel -->
+    <div class="col-md-6 card p-3" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+      <h4>Input Template</h4>
+      <div *ngFor="let item of droppedItems; let i = index" class="mb-3">
+        <ng-container *ngIf="item.field === 'Category'; else numeric">
+          <label class="form-label">{{ item.field }}</label>
+          <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+          <input type="text" class="form-control" placeholder="{{ item.field }} Input" [(ngModel)]="Category" />
+        </ng-container>
+
+        <ng-template #numeric>
+          <ng-container *ngIf="item.field === 'Numeric'; else date">
+            <label class="form-label">{{ item.field }}</label>
+            <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+            <input type="text" class="form-control" placeholder="{{ item.field }} Input" [(ngModel)]="Subcategory" />
+          </ng-container>
+        </ng-template>
+
+        <ng-template #date>
+          <ng-container *ngIf="item.field === 'Date'; else textarea">
+            <label class="form-label">{{ item.field }}</label>
+            <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+            <input type="date" class="form-control">
+          </ng-container>
+        </ng-template>
+
+        <ng-template #textarea>
+          <ng-container *ngIf="item.field === 'Textarea'">
+            <label class="form-label">{{ item.field }}</label>
+            <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+            <textarea class="form-control" rows="3"></textarea>
+          </ng-container>
+        </ng-template>
+      </div>
     </div>
   </div>
 
-  <div class="col-6 card2" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
-    <h1>Input Template</h1>
-    <div *ngFor="let item of droppedItems; let i = index">
-      <ng-container *ngIf="item.field === 'Category'; else numeric">
-        <label>{{ item.field }}</label><i style="float: right" class="bi bi-x fs-4 btn-remove"
-          (click)="removeItem(i)"></i><br>
-        <input type="text" placeholder="{{ item.field }} Input" [(ngModel)]="Category" />
-      </ng-container>
-
-      <ng-template #numeric>
-        <ng-container *ngIf="item.field === 'Numeric'; else date">
-          <label>{{ item.field }}</label> <i style="float: right" class="bi bi-x fs-4 btn-remove"
-            (click)="removeItem(i)"></i><br>
-          <input type="text" placeholder="{{ item.field }} Input" [(ngModel)]="Subcategory" />
-        </ng-container>
-      </ng-template>
-
-      <ng-template #date>
-        <ng-container *ngIf="item.field === 'Date'; else textarea">
-          <label>{{ item.field }}</label> <i style="float: right" class="bi bi-x fs-4 btn-remove"
-            (click)="removeItem(i)"></i><br>
-          <input type="date">
-        </ng-container>
-      </ng-template>
-
-      <ng-template #textarea>
-        <ng-container *ngIf="item.field === 'Textarea'">
-          <label>{{ item.field }}</label> <i style="float: right" class="bi bi-x fs-4 btn-remove"
-            (click)="removeItem(i)"></i><br>
-          <textarea></textarea>
-        </ng-container>
-      </ng-template>
-    </div>
-  </div>
-
-  <div>
-    <button><a routerLink="/creatednewcategory">Cancel</a></button>
-    <button (click)="addProduct()">{{ isEditMode ? 'Update' : 'Save' }}</button>
+  <!-- Footer Buttons -->
+  <div class="mt-4">
+    <button class="btn btn-secondary me-2">
+      <a routerLink="/creatednewcategory" class="text-white text-decoration-none">Cancel</a>
+    </button>
+    <button (click)="addProduct()" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
   </div>
 </div>
