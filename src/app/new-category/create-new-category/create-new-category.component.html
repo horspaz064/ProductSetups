@@ -1,113 +1,58 @@
-<!-- <div class="container mt-5">
-  <div class="border p-4 rounded">
-    <h2>Create New Category Page</h2>
-    <form>
-      Category Name
-      <div class="form-group">
-        <label for="categoryName">Name</label>
-        <input type="text" class="form-control" id="categoryName" placeholder="Enter category name">
-      </div>
-
-      <div class="row">
-        Controls
-        <div class="col-md-3">
-          <div class="card">
-            <div class="card-header">Control</div>
-            <div class="list-group list-group-flush">
-              <div class="form-group">
-                <label for="textInput">Text Input</label>
-                <input type="text" class="form-control" id="textInput" placeholder="Enter text">
-              </div>
-              <div class="form-group">
-                <label for="numberInput">Number Input</label>
-                <input type="number" class="form-control" id="numberInput" placeholder="Enter a number">
-              </div>
-              <div class="form-group">
-                <label for="dateInput">Date Input</label>
-                <input type="date" class="form-control" id="dateInput">
-              </div>
-              <div class="form-group">
-                <label for="exampleTextarea">Textarea</label>
-                <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter text here...">
-
-              </textarea>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        Product Template
-        <div class="col-md-9">
-          <div class="card">
-            <div class="card-header">Product Template</div>
-            <textarea class="form-control mt-3"></textarea>
-          </div>
-        </div>
-      </div>
-
-      Save and Cancel Buttons
-      <div class=" two-btn mt-5 d-flex justify-content-end">
-        <button class="btn btn-secondary mr-2">Cancel</button>
-        <button class="btn btn-primary mr-2">Save</button>
-      </div>
-
-    </form>
-  </div>
-</div> -->
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="card">
-      <div class="form row">
-        <div class="mt-2">
-          <label>Name</label>
-          <input type="text" [(ngModel)]="Category" [(ngModel)]="category" placeholder="Category"
-            class="form-control"  [ngClass]="{'is-invalid': isNameEmpty}"
-            (blur)="checkNameField()" />
-
-        </div>
-      </div>
-
-      <div class="row mt-5">
-        <div class="col-12 col-lg-6 col-md-12">
-          <h5>Control</h5>
-          <div class="card2 gap-2 d-flex flex-column align-items-center">
-            <div>
-              <input type="text" value="Textbox" class="form-control control" data-type="textbox" draggable="true" />
-            </div>
-            <div>
-              <input type="text" value="Numeric" class="form-control control" data-type="numeric" draggable="true" />
-            </div>
-            <div>
-              <input type="date" value="Date" class="form-control control" data-type="date" draggable="true" />
-            </div>
-            <div>
-              <textarea class="form-control control" data-type="textarea" draggable="true"></textarea>
-            </div>
-            <div>
-              <input type="button" value="Button" class="form-control control" data-type="button" draggable="true" />
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-lg-6 col-md-12">
-          <h5>Product Template</h5>
-          <div id="product-template" class="card3 col-6 d-flex justify-content-center align-items-center flex-column">
-
-         <!-- i want to display it here when i click edit  -->
-
-          </div>
-          <div class="float-end" style="float: left">
-            <button><a routerLink="/creatednewcategory">Cancel</a></button>
-            <button (click)="addProduct()">Save</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div>
+  <h2>Create New Product Template Page</h2>
+  <input type="text" [(ngModel)]="Category" placeholder="Categoryname"
+    [ngClass]="{ 'bg-danger text-white': duplicateCategory || (submitted && Category === '') }"
+    [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && Category === '' ? 'Please input' : 'Categoryname')" />
+  <button><a routerLink="/creatednewcategory">Cancel</a></button>
+  <button (click)=" addProduct()">{{ isEditMode ? 'Update' : 'Save' }}</button>
 </div>
 
+<div class="row mt-5">
+  <div class="col-6 card1">
+    <h1>Control</h1>
+    <div *ngFor="let control of controlItems" class="draggable" draggable="true"
+      (dragstart)="onDragStart($event, control)">
+      <label>{{ control.name }}</label>
+    </div>
+  </div>
 
+  <div class="col-6 card2" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+    <h1>Input Template</h1>
+    <div *ngFor="let item of droppedItems; let i = index">
+      <ng-container *ngIf="item.field === 'Category'; else numeric">
+        <label>{{ item.field }}</label><i style="float: right" class="bi bi-x fs-4 btn-remove"
+          (click)="removeItem(i)"></i><br>
+        <input type="text" placeholder="{{ item.field }} Input" [(ngModel)]="Category" />
+      </ng-container>
 
+      <ng-template #numeric>
+        <ng-container *ngIf="item.field === 'Numeric'; else date">
+          <label>{{ item.field }}</label> <i style="float: right" class="bi bi-x fs-4 btn-remove"
+            (click)="removeItem(i)"></i><br>
+          <input type="text" placeholder="{{ item.field }} Input" [(ngModel)]="Subcategory" />
+        </ng-container>
+      </ng-template>
+
+      <ng-template #date>
+        <ng-container *ngIf="item.field === 'Date'; else textarea">
+          <label>{{ item.field }}</label> <i style="float: right" class="bi bi-x fs-4 btn-remove"
+            (click)="removeItem(i)"></i><br>
+          <input type="date">
+        </ng-container>
+      </ng-template>
+
+      <ng-template #textarea>
+        <ng-container *ngIf="item.field === 'Textarea'">
+          <label>{{ item.field }}</label> <i style="float: right" class="bi bi-x fs-4 btn-remove"
+            (click)="removeItem(i)"></i><br>
+          <textarea></textarea>
+        </ng-container>
+      </ng-template>
+    </div>
+  </div>
+
+  <div>
+    <button><a routerLink="/creatednewcategory">Cancel</a></button>
+    <button (click)="addProduct()">{{ isEditMode ? 'Update' : 'Save' }}</button>
+  </div>
+</div>

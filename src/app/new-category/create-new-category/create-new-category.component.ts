@@ -1,223 +1,117 @@
-import { Component, OnInit } from "@angular/core";
-import { ProductService } from "../../service/product.service";
-import { ActivatedRoute, Router } from "@angular/router";
-declare var $: any;
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../service/product.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-new-category',
+  selector: 'app-new-product',
   templateUrl: './create-new-category.component.html',
   styleUrl: './create-new-category.component.css'
 })
 export class CreateNewCategoryComponent implements OnInit {
   Category: string = '';
   Subcategory: string = '';
-  category: string = '';
-  subcategory: string = '';
-  isEditMode: boolean = false;
-  isNameEmpty: boolean = false;
+  droppedItems: { field: string; model: 'Category' | 'Numeric' | 'Textarea'; value: string }[] = [];
+  isEditMode = false;
+  productIndex: number | null = null;
+  submitted: boolean = false;
+  duplicateCategory: boolean = false;
 
+  controlItems = [
+    { name: 'Category' },
+    { name: 'Numeric' },
+    { name: 'Textarea' }
+  ];
 
-  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private router: Router) {}
 
-  ngOnInit(): void {
-
-    
-    const controls = document.querySelectorAll('.control');
-    controls.forEach((control) => {
-      control.addEventListener('dragstart', (event) => this.onDragStart(event as DragEvent));
-    });
-
-    const productTemplate = document.getElementById('product-template');
-    if (productTemplate) {
-      productTemplate.addEventListener('dragover', (event) => this.onDragOver(event as DragEvent));
-      productTemplate.addEventListener('drop', (event) => this.onDrop(event as DragEvent));
+  ngOnInit() {
+    const state = history.state;
+    if (state && state.product) {
+      this.Category = state.product.Category;
+      this.Subcategory = state.product.Subcategory;
+      this.droppedItems = state.product.droppedItems || [];
+      this.isEditMode = true;
+      this.productIndex = this.productService.getProducts().findIndex(prod =>
+        prod.Category === this.Category && prod.Subcategory === this.Subcategory
+      );
     }
-
-    // Get query parameters to check if in edit mode
-    this.route.queryParams.subscribe(params => {
-      this.category = params['category'] || '';
-      this.subcategory = params['subcategory'] || '';
-      this.isEditMode = !!this.category; // Set edit mode based on category availability
-
-      // Load product templates if editing an existing product, else clear template section for new product
-      if (this.isEditMode) {
-        this.loadProductTemplates(this.category);
-      } else {
-        if (productTemplate) {
-          productTemplate.innerHTML = ''; // Clear the product template for a new product
-        }
-      }
-    });
-  }
-  initializeDragAndDrop() {
-    throw new Error("Method not implemented.");
   }
 
-  checkNameField() {
-    this.isNameEmpty = !this.Category.trim();
+  onDragStart(event: DragEvent, control: { name: string }) {
+    if (event.dataTransfer) {
+      event.dataTransfer.setData('text/plain', control.name);
+    }
+  }
+
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
+  }
+
+  onDrop(event: DragEvent) {
+    event.preventDefault();
+    const fieldName = event.dataTransfer?.getData('text/plain') as "Category" | "Numeric" | "Textarea";
+
+    if (fieldName) {
+      let value = '';
+      if (fieldName === 'Category') value = this.Category;
+      if (fieldName === 'Numeric' || fieldName === 'Textarea') value = this.Subcategory;
+
+      this.droppedItems.push({ field: fieldName, model: fieldName, value });
+
+      localStorage.setItem(this.getDroppedItemsKey(), JSON.stringify(this.droppedItems));
+    }
   }
 
   addProduct() {
-    if (!this.Category.trim()) {
-      this.isNameEmpty = true; // Set the flag to show error styling
-      return; // Stop the function if the field is empty
+    this.submitted = true;
+
+    if (this.Category === '') {
+      return;
     }
 
-    const newProduct = { Category: this.Category, Subcategory: this.Subcategory };
-    this.productService.addProduct(newProduct);
+    const isDuplicate = !this.isEditMode && this.productService.getProducts().some(prod => prod.Category === this.Category);
 
-    // Clear input fields after saving
-    this.Category = '';
-    this.Subcategory = '';
-
-    const productTemplate = document.getElementById('product-template');
-    if (productTemplate) {
-      const templateHTML = productTemplate.innerHTML;
-      const key = this.category;
-
-      let productTemplates: string[] = JSON.parse(localStorage.getItem(key) || '[]');
-      productTemplates.push(templateHTML);
-
-      localStorage.setItem(key, JSON.stringify(productTemplates));
+    if (isDuplicate) {
+      this.duplicateCategory = true;
+      alert("Category name is already taken");
+      return;
+    } else {
+      this.duplicateCategory = false;
     }
+
+    const newProduct = {
+      Category: this.Category,
+      Subcategory: this.Subcategory,
+      droppedItems: this.droppedItems
+    };
+
+    if (this.isEditMode && this.productIndex !== null) {
+      this.productService.updateProduct(this.productIndex, newProduct);
+    } else {
+      this.productService.addProduct(newProduct);
+    }
+
+    localStorage.setItem(this.getDroppedItemsKey(), JSON.stringify(this.droppedItems));
+
+    this.resetForm();
     this.router.navigate(['/creatednewcategory']);
   }
 
-  loadProductTemplates(category: string) {
-    const existingTemplates = localStorage.getItem(category);
-    const productTemplateDiv = document.getElementById('product-template');
-
-    if (productTemplateDiv && existingTemplates) {
-      const productTemplates: string[] = JSON.parse(existingTemplates);
-      productTemplateDiv.innerHTML = ''; // Clear existing content
-
-      productTemplates.forEach((template: string) => {
-        const templateElement = document.createElement('div');
-        templateElement.classList.add('template-item');
-        templateElement.innerHTML = template;
-        productTemplateDiv.appendChild(templateElement);
-      });
-    }
+  getDroppedItemsKey() {
+    return `droppedItems_${this.Category}_${this.Subcategory}`;
   }
 
-  private onDragStart(event: DragEvent): void {
-    const target = event.target as HTMLElement;
-    if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) {
-      event.dataTransfer?.setData('text/plain', target.getAttribute('data-type') || '');
-    }
+  removeItem(index: number) {
+    this.droppedItems.splice(index, 1);
+    localStorage.setItem(this.getDroppedItemsKey(), JSON.stringify(this.droppedItems));
   }
 
-  private onDragOver(event: DragEvent): void {
-    event.preventDefault(); // Prevent default to allow drop
+  resetForm() {
+    this.Category = '';
+    this.Subcategory = '';
+    this.droppedItems = [];
+    this.submitted = false;
+    this.duplicateCategory = false;
+    localStorage.removeItem(this.getDroppedItemsKey());
   }
-
-  private onDrop(event: DragEvent): void {
-    event.preventDefault(); // Prevent default action
-    const controlType = event.dataTransfer?.getData('text/plain');
-    if (controlType) {
-      this.addFieldToTemplate(controlType);
-    }
-  }
-
-  private addFieldToTemplate(controlType: string): void {
-    let newField = '';
-    switch (controlType) {
-      case 'textbox':
-        newField = `<div class="card mb-3 template">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="card-title">${this.Category}</h5>
-              <button class="btn btn-danger btn-sm click1">&times;</button>
-            </div>
-            <div class="form-group">
-              <label for="name1">Name</label>
-              <input type="text" class="form-control" id="name1" placeholder="Enter name" value="${this.Category}">
-            </div>
-            <div class="form-group">
-              <label for="type1">Type</label>
-              <select class="form-control" id="type1">
-                <option>Textbox</option>
-                <option>Numeric</option>
-              </select>
-            </div>
-          </div>
-        </div>`;
-        break;
-      case 'numeric':
-        newField = `<div class="card mb-3 template">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="card-title">Field 2</h5>
-              <button class="btn btn-danger btn-sm click1">&times;</button>
-            </div>
-            <div class="form-group">
-              <label for="name1">Name</label>
-              <input type="text" class="form-control" id="name1" placeholder="Enter number">
-            </div>
-            <div class="form-group">
-              <label for="type1">Type</label>
-              <select class="form-control" id="type1">
-                <option>Numeric</option>
-              </select>
-            </div>
-          </div>
-        </div>`;
-        break;
-      case 'date':
-        newField = `<div class="card mb-3 template">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="card-title">Field 3</h5>
-              <button class="btn btn-danger btn-sm click1">&times;</button>
-            </div>
-            <div class="form-group">
-              <label for="name1">Date</label>
-              <input type="date" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="type1">Type</label>
-              <select class="form-control" id="type1">
-                <option>Date</option>
-              </select>
-            </div>
-          </div>
-        </div>`;
-        break;
-      case 'textarea':
-        newField = `<div class="card mb-3 template">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-              <h5 class="card-title">Field 4</h5>
-              <button class="btn btn-danger btn-sm click1">&times;</button>
-            </div>
-            <div class="form-group">
-              <label for="name1">Textarea</label>
-              <textarea class="form-control"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="type1">Type</label>
-              <select class="form-control" id="type1">
-                <option>Textarea</option>
-              </select>
-            </div>
-          </div>
-        </div>`;
-        break;
-      case 'button':
-        newField = `<div class="form-group"><button class="btn btn-primary">Button</button></div>`;
-        break;
-    }
-
-    const productTemplate = document.getElementById('product-template');
-    if (productTemplate) {
-      productTemplate.insertAdjacentHTML('beforeend', newField);
-    }
-
-    $(".click1").click(function (this: HTMLElement) {
-      $(".template").on("click", function (this: HTMLElement) {
-        $(this).remove();
-      });
-    });
-  }
-
 }

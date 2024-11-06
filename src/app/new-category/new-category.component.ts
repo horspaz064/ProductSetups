@@ -1,20 +1,26 @@
-import { Component, OnInit } from "@angular/core";
-import { ProductService } from "../service/product.service";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
+import { ProductService } from '../service/product.service';
+import { FormsModule } from '@angular/forms';
 
-declare var $: any
 @Component({
-  selector: 'app-new-category',
+  selector: 'app-product-list',
   templateUrl: './new-category.component.html',
-  styleUrl: './new-category.component.css'
 })
 export class NewCategoryComponent implements OnInit {
-  products: { Category: string; Subcategory: string }[] = [];
-  isEditMode = false;
-  currentProductIndex: number | null = null;
+  products: {
+    Category: string;
+    Subcategory: string;
+    droppedItems: {
+      field: string;
+      model: 'Category' | 'Numeric' | 'Textarea';
+      value: string;
+    }[];
+    disabled?: boolean;
+  }[] = [];
 
-
-  constructor(private productService: ProductService, private router: Router) { }
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {
     this.loadProducts();
@@ -24,18 +30,75 @@ export class NewCategoryComponent implements OnInit {
     this.products = this.productService.getProducts();
   }
 
-  cloneProduct(product: { Category: string; Subcategory: string }) {
+  editProduct(product: {
+    Category: string;
+    Subcategory: string;
+    droppedItems: {
+      field: string;
+      model: 'Category' | 'Numeric' | 'Textarea';
+      value: string;
+    }[];
+  }) {
+    this.router.navigate(['/createnewcategory'], {
+      state: { product }
+    });
+  }
+
+  cloneProduct(product: {
+    Category: string;
+    Subcategory: string;
+    droppedItems: {
+      field: string;
+      model: 'Category' | 'Numeric' | 'Textarea';
+      value: string;
+    }[];
+  }) {
+    let baseName = product.Category + '.copy';
+    let newName = baseName;
+    let index = 1;
+
+    const productList = this.productService.getProducts();
+
+    while (productList.some(prod => prod.Category === newName && prod.Category !== product.Category)) {
+      newName = `${baseName} ${index}`;
+      index++;
+    }
+
     const clonedProduct = {
-      Category: product.Category + '.copy',
-      Subcategory: product.Subcategory 
+      Category: newName,
+      Subcategory: product.Subcategory,
+      droppedItems: product.droppedItems.map(item => ({ ...item }))
     };
+
     this.productService.addProduct(clonedProduct);
     this.loadProducts();
   }
 
-  editProduct(product: { Category: string; Subcategory: string }) {
-    this.router.navigate(['/createnewcategory'], { queryParams: { category: product.Category, subcategory: product.Subcategory } });
-    this.isEditMode = true;
+  isDisableModalVisible = false;
+  productNameToDisable: string = '';
+  productToDisable: any;
+
+  disableProduct(product: any) {
+    this.productToDisable = product;
+    this.isDisableModalVisible = true;
   }
 
+  confirmDisable() {
+    if (this.productNameToDisable === this.productToDisable.Category) {
+      const index = this.products.indexOf(this.productToDisable);
+      if (index > -1) {
+        this.products[index].disabled = true;
+        localStorage.setItem('products', JSON.stringify(this.products));
+      }
+      this.resetDisableModal();
+    } else {
+      alert('Product name does not match. Please type the correct product name to disable.');
+    }
+  }
+
+  resetDisableModal() {
+    this.isDisableModalVisible = false;
+    this.productNameToDisable = '';
+    this.productToDisable = null;
+  }
 }
