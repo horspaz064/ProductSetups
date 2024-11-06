@@ -1,21 +1,42 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
-    <!--Create new sub Category-->
+  
     <div class="my-5 mx-auto border border-2 text-center">
       <h1 class="display-5 fw-bold text-success">Create New Sub Category</h1>
     </div>
 
-    <!--Search selecr Category more-->
 
 
-    <!--Create New Category Page-->
+<<<<<<< HEAD
+=======
+    <form class="d-flex text-center" role="search">
+      <div class="container">
+        <div class="dropdown">
+          <button
+            class="btn btn-outline-secondary border-3 dropdown-toggle px-5 py-4 text-dark fw-bold mx-auto"
+            type="button"
+            id="multiSelectDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Select hear
+          </button>
+          <ul class="dropdown-menu text-center form-multi-select" aria-labelledby="multiSelectDropdown" multiple data-coreui-search="global">
+            <li><a>conponent</a></li>
+          </ul>
+        </div>
+      </div>
+    </form>
+>>>>>>> 076b5a2855ab4b7fb4fe303bad8019232704f7bb
+
+
     <div class="my-5">
       <div class="row">
         <div class="col-md-6">
           <div class="text-center">
             <h1 class="fw-bold display-5">Control</h1>
             <div class="border border-2 mx-auto w-50 my-5">
-              <!----------------- Add new Category --------------------->
+          
 
 
 
@@ -26,7 +47,7 @@
           <div class="text-center">
             <h1 class="fw-bold display-5">Product Template</h1>
             <div class="border border-2 mx-auto w-50 my-5">
-              <!----------------- Disable Category --------------------->
+          
 
 
 
@@ -34,7 +55,115 @@
           </div>
         </div>
       </div>
-      <!--=====================Code===================-->
+
     </div>
   </div>
-</div>
+</div> -->
+
+<div class="container mt-4">
+  <h2 class="mb-4">Create Sub Category Template Page</h2>
+  <!-- Category Input -->
+  <div class="mb-3 row">
+
+    <div class="col-6">
+      <div class="row">
+        <div class="col-11">
+  
+          <input
+            [value]="selectedCategories"
+            class="form-control"
+            placeholder="Selected Categories"
+            readonly
+          />
+        </div>
+        <div class="col-1">
+          <i class="bi bi-arrow-down btn"></i>
+        </div>
+      </div>
+      
+      <div class="dropdown">
+        <div
+          *ngFor="let product of products" class="border p-3 mb-2 d-flex justify-content-between align-items-center">
+          <div class="me-auto check">
+            <input
+              type="checkbox"
+              [(ngModel)]="product.isSelected"/>
+            <span class="fw-bold">{{ product.Category }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-6">
+      <input 
+      type="text" 
+      [(ngModel)]="SubCategory" 
+      class="form-control" 
+      placeholder="Category"
+      [ngClass]="{ 'bg-danger text-white': duplicateCategory || (submitted && SubCategory === '') }"
+      [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && SubCategory === '' ? 'Please input' : 'SubCategory')" />
+    </div>
+  </div>
+
+
+  <!-- Action Buttons -->
+  <div class="mb-4">
+    <button class="btn btn-secondary me-2">
+      <a routerLink="/creatednewsubcategory" class="text-white text-decoration-none">Cancel</a>
+    </button>
+    <button (click)="addProduct()" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
+  </div>
+
+  <div class="row mt-5">
+    <!-- Control Panel -->
+    <div class="col-md-6 card p-3">
+      <h4>Control</h4>
+      <div *ngFor="let control of controlItems" class="draggable p-2 mb-2 border bg-light" draggable="true" (dragstart)="onDragStart($event, control)">
+        <label>{{ control.name }}</label>
+      </div>
+    </div>
+
+    <!-- Input Template Panel -->
+    <div class="col-md-6 card p-3" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+      <h4>Input Template</h4>
+      <div *ngFor="let item of droppedItems; let i = index" class="mb-3">
+        <ng-container *ngIf="item.field === 'Textbox'; else numeric">
+          <label class="form-label">{{ item.field }}</label>
+          <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+          <input type="text" class="form-control" placeholder="{{ item.field }} Input" [(ngModel)]="SubCategory" />
+        </ng-container>
+
+        <ng-template #numeric>
+          <ng-container *ngIf="item.field === 'Numeric'; else date">
+            <label class="form-label">{{ item.field }}</label>
+            <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+            <input type="text" class="form-control" placeholder="{{ item.field }} Input" [(ngModel)]="Numeric" />
+          </ng-container>
+        </ng-template>
+
+        <ng-template #date>
+          <ng-container *ngIf="item.field === 'Date'; else textarea">
+            <label class="form-label">{{ item.field }}</label>
+            <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+            <input type="date" class="form-control">
+          </ng-container>
+        </ng-template>
+
+        <ng-template #textarea>
+          <ng-container *ngIf="item.field === 'Textarea'">
+            <label class="form-label">{{ item.field }}</label>
+            <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+            <textarea class="form-control" rows="3"></textarea>
+          </ng-container>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+
+  
+  
