@@ -17,7 +17,7 @@ export class ProductService {
 
   addProduct(product: any) {
     this.products.push(product);
-    localStorage.setItem('products', JSON.stringify(this.products));
+    localStorage.setItem('products', JSON.stringify(this.products)); // Saves under 'products' key
   }
 
   updateProduct(index: number, updatedProduct: any) {
