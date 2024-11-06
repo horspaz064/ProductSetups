@@ -1,12 +1,9 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-=======
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SubproductsService } from '../../service/subcategory.service';
 import { ProductService } from '../../service/product.service';
 
->>>>>>> 076b5a2855ab4b7fb4fe303bad8019232704f7bb
+
 declare var $: any;
 
 @Component({
@@ -15,32 +12,7 @@ declare var $: any;
   styleUrl: './child-sub-category.component.css'
 })
 export class ChildNewSubCategory implements OnInit {
-  // constructor() {}
-
-  // ngOnInit(): void {
-  //   const $dropdownButton = $('#multiSelectDropdown');
-  //   const $dropdownMenu = $('.dropdown-menu');
-  //   let mySelectedItems: string[] = [];
-
-  //   const handleCB = (event: Event) => {
-  //     const $checkbox = $(event.target);
-  //     if ($checkbox.is(':checked')) {
-  //       mySelectedItems.push($checkbox.val() as string);
-  //     } else {
-  //       mySelectedItems = mySelectedItems.filter(
-  //         (item) => item !== $checkbox.val()
-  //       );
-  //     }
-
-  //     $dropdownButton.text(
-  //       mySelectedItems.length > 0 ? mySelectedItems.join(', ') : 'Select Items'
-  //     );
-  //   };
-
-  //   $dropdownMenu.on('change', 'input[type="checkbox"]', handleCB);
-  // }
-
-
+ 
   @Input() products: {
     Category: string;
     Numeric: string;
