@@ -32,12 +32,12 @@ export class ChildNewSubCategory implements OnInit {
 
 
   // Getter to retrieve selected categories
-  get selectedCategories(): string {
+ get selectedCategories(): string {
     return this.products
-      .filter(product => product.isSelected)  // Only include checked items
-      .map(product => product.Category)
-      .join(', ');
-  }
+        .filter(product => product.isSelected)  // Only include checked items
+        .map(product => product.Category)
+        .join(', ');
+}
 
 
 
@@ -60,17 +60,18 @@ export class ChildNewSubCategory implements OnInit {
   ngOnInit() {
     const state = history.state;
     if (state && state.product) {
-      this.SubCategory = state.product.SubCategory;
-      this.Numeric = state.product.Numeric;
-      this.droppedItems = state.product.droppedItems || [];
-      this.isEditMode = true;
-      this.productIndex = this.subproductService.getsubproducts().findIndex(prod =>
-        prod.SubCategory === this.SubCategory && prod.Numeric === this.Numeric
-      );
+        this.SubCategory = state.product.SubCategory;
+        this.Numeric = state.product.Numeric;
+        this.droppedItems = state.product.droppedItems || [];
+        this.products = state.product.products || [];  // Load saved products with isSelected status
+        this.isEditMode = true;
+        this.productIndex = this.subproductService.getsubproducts().findIndex(prod =>
+            prod.SubCategory === this.SubCategory && prod.Numeric === this.Numeric
+        );
     }
     this.jquery();
     this.loadProducts();
-  }
+}
 
   onDragStart(event: DragEvent, control: { name: string }) {
     if (event.dataTransfer) {
@@ -97,30 +98,46 @@ export class ChildNewSubCategory implements OnInit {
     }
   }
 
+  
   addProduct() {
     this.submitted = true;
     if (this.SubCategory === '') {
-      return;
+        return;
+    }
+
+    // Check for duplicates
+    const existingProduct = this.subproductService.getsubproducts().find(
+        prod => prod.SubCategory === this.SubCategory && prod.Numeric === this.Numeric
+    );
+
+    if (existingProduct && !this.isEditMode) { // Check for duplicates only in add mode
+        this.duplicateCategory = true;
+        alert("Name is already taken!")
+        return;
+    } else {
+        this.duplicateCategory = false;
     }
 
     const newProduct = {
-      SubCategory: this.SubCategory,
-      Numeric: this.Numeric,
-      droppedItems: this.droppedItems
+        SubCategory: this.SubCategory,
+        Numeric: this.Numeric,
+        droppedItems: this.droppedItems,
+        products: this.products  // Include products array to save isSelected status
     };
 
     if (this.isEditMode && this.productIndex !== null) {
-      this.subproductService.updateProduct(this.productIndex, newProduct);
+        this.subproductService.updateProduct(this.productIndex, newProduct);
     } else {
-      this.subproductService.addProduct(newProduct);
+        this.subproductService.addProduct(newProduct);
     }
 
-    // Save to local storage for retrieval in NewSubCategory
     localStorage.setItem('subproducts', JSON.stringify(this.subproductService.getsubproducts()));
-
     this.resetForm();
     this.router.navigate(['/creatednewsubcategory']);
-  }
+}
+
+
+
 
   getDroppedItemsKey() {
     return `droppedItems_${this.SubCategory}_${this.Numeric}`;

@@ -5,9 +5,7 @@ import { SubproductsService } from "../service/subcategory.service";
 @Component({
   selector: "app-new-sub",
   templateUrl: "./new-sub-category.component.html",
-
 })
-
 export class NewSubCategory {
   subproducts: {
     SubCategory: string;
@@ -20,6 +18,10 @@ export class NewSubCategory {
     disabled?: boolean;
   }[] = [];
 
+  isDisableModalVisible = false;
+  productNameToDisable: string = '';
+  productToDisable: any;
+
   constructor(private subproductService: SubproductsService, private router: Router) {}
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class NewSubCategory {
   loadProducts() {
     const storedProducts = localStorage.getItem('subproducts');
     this.subproducts = storedProducts ? JSON.parse(storedProducts) : [];
- }
+  }
 
   editProduct(product: {
     SubCategory: string;
@@ -66,7 +68,7 @@ export class NewSubCategory {
     }
 
     const clonedProduct = {
-      SubCategory: newName,  // Corrected field name
+      SubCategory: newName,
       Numeric: product.Numeric,
       droppedItems: product.droppedItems.map(item => ({ ...item }))
     };
@@ -74,23 +76,26 @@ export class NewSubCategory {
     this.loadProducts();
   }
 
-  isDisableModalVisible = false;
-  productNameToDisable: string = '';
-  productToDisable: any;
-
-  disableProduct(product: any) {
-    this.productToDisable = product;
+  disableProduct(subproduct: any) {
+    this.productToDisable = subproduct;
     this.isDisableModalVisible = true;
   }
 
   confirmDisable() {
-    if (this.productNameToDisable === this.productToDisable.Category) {
+    if (!this.productToDisable) {
+      alert('No product selected to disable.');
+      return;
+    }
+
+    if (this.productNameToDisable === this.productToDisable.SubCategory) {
       const index = this.subproducts.indexOf(this.productToDisable);
       if (index > -1) {
         this.subproducts[index].disabled = true;
-        localStorage.setItem('products', JSON.stringify(this.subproducts));
+        localStorage.setItem('subproducts', JSON.stringify(this.subproducts));
+        this.resetDisableModal();
+      } else {
+        alert('Product not found in the list.');
       }
-      this.resetDisableModal();
     } else {
       alert('Product name does not match. Please type the correct product name to disable.');
     }
@@ -102,4 +107,3 @@ export class NewSubCategory {
     this.productToDisable = null;
   }
 }
-
