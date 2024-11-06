@@ -3,10 +3,10 @@
 
   <!-- Category Input -->
   <div class="mb-3">
-    <input 
-      type="text" 
-      [(ngModel)]="Category" 
-      class="form-control" 
+    <input
+      type="text"
+      [(ngModel)]="Category"
+      class="form-control"
       placeholder="Categoryname"
       [ngClass]="{ 'bg-danger text-white': duplicateCategory || (submitted && Category === '') }"
       [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && Category === '' ? 'Please input' : 'Categoryname')" />

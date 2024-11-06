@@ -3,9 +3,12 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\new-product-template",
+    "\\src\\app\\create-new-item",
+    "\\src\\app\\create-new-item\\add-image-page",
+    "\\src\\app\\create-new-item\\create-item-page",
+    "\\src\\app\\create-new-item\\not-for-sale-popup",
     "\\src\\app\\new-product-template\\new-template"
   ],
-  "SelectedNode": "\\src\\app\\app.component.ts",
+  "SelectedNode": "\\src\\app\\create-new-item\\not-for-sale-popup\\not-for-sale-popup.component.html",
   "PreviewInSolutionExplorer": false
 }
