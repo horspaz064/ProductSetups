@@ -13,6 +13,7 @@ import { NewSubCategory } from './new-sub-category/new-sub-category.component';
 import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child-sub-category.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CreateNewProductComponent } from './create-new-product/create-new-product-page/create-new-product.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     ChildNewSubCategory,
     NewProductTemplateComponent,
     NewTemplateComponent,
+    CreateNewProductComponent
   ],
   imports: [
     BrowserModule,
