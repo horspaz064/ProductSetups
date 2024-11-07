@@ -12,7 +12,7 @@ declare var $: any;
   styleUrl: './child-sub-category.component.css'
 })
 export class ChildNewSubCategory implements OnInit {
- 
+
   @Input() products: {
     Category: string;
     Numeric: string;
@@ -73,9 +73,9 @@ export class ChildNewSubCategory implements OnInit {
     this.loadProducts();
 }
 
- 
 
-  
+
+
   addProduct() {
     this.submitted = true;
     if (this.SubCategory === '') {
@@ -144,7 +144,7 @@ export class ChildNewSubCategory implements OnInit {
   }
 
 
-  
+
 
   onDragOver(event: DragEvent) {
     event.preventDefault();

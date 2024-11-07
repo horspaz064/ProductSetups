@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h2 class="mb-4">Create New Product Template Page</h2>
+  <h2 class="mb-4 text-center fw-bold">Create New Product Template Page</h2>
 
   <!-- Category Input -->
   <div class="mb-3">
@@ -14,10 +14,10 @@
 
   <!-- Action Buttons -->
   <div class="mb-4">
-    <button class="btn btn-secondary me-2">
+    <button class="btn btn-secondary me-2 px-3 py-2">
       <a routerLink="/creatednewcategory" class="text-white text-decoration-none">Cancel</a>
     </button>
-    <button (click)="addProduct()" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
+    <button (click)="addProduct()" class="btn btn-primary px-3 py-2">{{ isEditMode ? 'Update' : 'Save' }}</button>
   </div>
 
   <div class="row mt-5">
@@ -69,8 +69,8 @@
   <!-- Footer Buttons -->
   <div class="mt-4">
     <button class="btn btn-secondary me-2">
-      <a routerLink="/creatednewcategory" class="text-white text-decoration-none">Cancel</a>
+      <a routerLink="/creatednewcategory" class="text-white text-decoration-none px-3 py-2">Cancel</a>
     </button>
-    <button (click)="addProduct()" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
+    <button (click)="addProduct()" class="btn btn-primary px-3 py-2">{{ isEditMode ? 'Update' : 'Save' }}</button>
   </div>
 </div>
