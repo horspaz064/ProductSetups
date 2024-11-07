@@ -73,30 +73,7 @@ export class ChildNewSubCategory implements OnInit {
     this.loadProducts();
 }
 
-  onDragStart(event: DragEvent, control: { name: string }) {
-    if (event.dataTransfer) {
-      event.dataTransfer.setData('text/plain', control.name);
-    }
-  }
-
-  onDragOver(event: DragEvent) {
-    event.preventDefault();
-  }
-
-  onDrop(event: DragEvent) {
-    event.preventDefault();
-    const fieldName = event.dataTransfer?.getData('text/plain') as "Textbox" | "Numeric" | "Textarea";
-
-    if (fieldName) {
-      let value = '';
-      if (fieldName === 'Textbox') value = this.SubCategory;
-      if (fieldName === 'Numeric' || fieldName === 'Textarea') value = this.Numeric;
-
-      this.droppedItems.push({ field: fieldName, model: fieldName, value });
-
-      localStorage.setItem(this.getDroppedItemsKey(), JSON.stringify(this.droppedItems));
-    }
-  }
+ 
 
   
   addProduct() {
@@ -138,11 +115,6 @@ export class ChildNewSubCategory implements OnInit {
 
 
 
-
-  getDroppedItemsKey() {
-    return `droppedItems_${this.SubCategory}_${this.Numeric}`;
-  }
-
   removeItem(index: number) {
     this.droppedItems.splice(index, 1);
     localStorage.setItem(this.getDroppedItemsKey(), JSON.stringify(this.droppedItems));
@@ -163,6 +135,38 @@ export class ChildNewSubCategory implements OnInit {
         $(".dropdown").slideToggle(0);
       })
     })
+  }
+
+  onDragStart(event: DragEvent, control: { name: string }) {
+    if (event.dataTransfer) {
+      event.dataTransfer.setData('text/plain', control.name);
+    }
+  }
+
+
+  
+
+  onDragOver(event: DragEvent) {
+    event.preventDefault();
+  }
+
+  onDrop(event: DragEvent) {
+    event.preventDefault();
+    const fieldName = event.dataTransfer?.getData('text/plain') as "Textbox" | "Numeric" | "Textarea";
+
+    if (fieldName) {
+      let value = '';
+      if (fieldName === 'Textbox') value = this.SubCategory;
+      if (fieldName === 'Numeric' || fieldName === 'Textarea') value = this.Numeric;
+
+      this.droppedItems.push({ field: fieldName, model: fieldName, value });
+
+      localStorage.setItem(this.getDroppedItemsKey(), JSON.stringify(this.droppedItems));
+    }
+  }
+
+  getDroppedItemsKey() {
+    return `droppedItems_${this.SubCategory}_${this.Numeric}`;
   }
 }
 
