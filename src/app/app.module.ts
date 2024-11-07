@@ -14,6 +14,9 @@ import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CreateNewProductComponent } from './create-new-product/create-new-product-page/create-new-product.component';
+import { CreateNewItemComponent } from './create-new-item/create-new-item.component';
+import { AddImagePageComponent } from './create-new-item/add-image-page/add-image-page.component';
+import { NotForSaleComponent } from './create-new-item/not-for-sale-popup/not-for-sale-popup.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,12 @@ import { CreateNewProductComponent } from './create-new-product/create-new-produ
     ChildNewSubCategory,
     NewProductTemplateComponent,
     NewTemplateComponent,
-    CreateNewProductComponent
+
+    //===>( 7,11,2024 ) Heng Add ---->
+    CreateNewProductComponent,
+    CreateNewItemComponent,
+    AddImagePageComponent,
+    NotForSaleComponent
   ],
   imports: [
     BrowserModule,

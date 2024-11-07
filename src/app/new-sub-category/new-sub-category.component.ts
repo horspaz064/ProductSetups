@@ -1,10 +1,10 @@
-import { Component } from "@angular/core";
-import { Router } from "@angular/router";
-import { SubproductsService } from "../service/subcategory.service";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { SubproductsService } from '../service/subcategory.service';
 
 @Component({
-  selector: "app-new-sub",
-  templateUrl: "./new-sub-category.component.html",
+  selector: 'app-new-sub',
+  templateUrl: './new-sub-category.component.html',
 })
 export class NewSubCategory {
   subproducts: {
@@ -22,7 +22,10 @@ export class NewSubCategory {
   productNameToDisable: string = '';
   productToDisable: any;
 
-  constructor(private subproductService: SubproductsService, private router: Router) {}
+  constructor(
+    private subproductService: SubproductsService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.loadProducts();
@@ -43,7 +46,7 @@ export class NewSubCategory {
     }[];
   }) {
     this.router.navigate(['/child-sub'], {
-      state: { product }
+      state: { product },
     });
   }
 
@@ -56,13 +59,19 @@ export class NewSubCategory {
       value: string;
     }[];
   }) {
-    let baseName = product.SubCategory + '.copy';
+    let baseName = product.SubCategory + ' Clone';
     let newName = baseName;
     let index = 1;
 
     const productList = this.subproductService.getsubproducts();
 
-    while (productList.some(prod => prod.SubCategory === newName && prod.SubCategory !== product.SubCategory)) {
+    while (
+      productList.some(
+        (prod) =>
+          prod.SubCategory === newName &&
+          prod.SubCategory !== product.SubCategory
+      )
+    ) {
       newName = `${baseName} ${index}`;
       index++;
     }
@@ -70,7 +79,7 @@ export class NewSubCategory {
     const clonedProduct = {
       SubCategory: newName,
       Numeric: product.Numeric,
-      droppedItems: product.droppedItems.map(item => ({ ...item }))
+      droppedItems: product.droppedItems.map((item) => ({ ...item })),
     };
     this.subproductService.addProduct(clonedProduct);
     this.loadProducts();
@@ -97,7 +106,9 @@ export class NewSubCategory {
         alert('Product not found in the list.');
       }
     } else {
-      alert('Product name does not match. Please type the correct product name to disable.');
+      alert(
+        'Product name does not match. Please type the correct product name to disable.'
+      );
     }
   }
 

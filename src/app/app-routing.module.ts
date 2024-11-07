@@ -7,6 +7,7 @@ import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child
 import { CreateNewProductComponent } from './create-new-product/create-new-product.component';
 import { NewCategoryComponent } from './new-category/new-category.component';
 import { CreateNewCategoryComponent } from './new-category/create-new-category/create-new-category.component';
+import { CreateNewItemComponent } from './create-new-item/create-new-item.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: "child-sub",
-    component: ChildNewSubCategory,
+    component: ChildNewSubCategory
   },
   {
     path: "creatednewsubcategory",
@@ -42,9 +43,13 @@ const routes: Routes = [
     path:'createnewproduct',
     component:CreateNewProductComponent
   },
+  {
+    path: "customers",
+    component: CreateNewItemComponent
+  }
 
 
-    
+
 ];
 
 @NgModule({

@@ -1,32 +1,32 @@
 <div class="mb-4 mt-5">
   <!-- Create New Product Template Button -->
-  <button class="btn btn-primary">
-    <a routerLink="/createnewcategory" class="text-white text-decoration-none">Create New Product Template</a>
+  <button class="btn btn-primary px-5 py-3 my-5">
+    <a routerLink="/createnewcategory" class=" text-white text-decoration-none">Create New Product Template</a>
   </button>
 </div>
 
 <!-- Product List -->
 <div *ngFor="let product of products" class="border p-3 mb-2 d-flex justify-content-between align-items-center">
   <div class="me-auto">
-    <span class="fw-bold">{{ product.Category }}</span> 
+    <span class="fw-bold">{{ product.Category }}</span>
   </div>
   <div>
-    <button 
-      (click)="cloneProduct(product)" 
+    <button
+      (click)="cloneProduct(product)"
       class="btn btn-outline-primary me-2"
       [disabled]="product.disabled"
       [style.opacity]="product.disabled ? 0.5 : 1">
       Clone
     </button>
-    <button 
-      (click)="editProduct(product)" 
+    <button
+      (click)="editProduct(product)"
       class="btn btn-outline-success me-2"
       [disabled]="product.disabled"
       [style.opacity]="product.disabled ? 0.5 : 1">
       Edit
     </button>
-    <button 
-      (click)="disableProduct(product)" 
+    <button
+      (click)="disableProduct(product)"
       class="btn btn-outline-danger"
       [disabled]="product.disabled">
       Disable
@@ -44,10 +44,10 @@
       </div>
       <div class="modal-body">
         <p>Type the product name to confirm disabling:</p>
-        <input 
-          type="text" 
-          class="form-control" 
-          [(ngModel)]="productNameToDisable" 
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="productNameToDisable"
           placeholder="Enter product name" />
       </div>
       <div class="modal-footer">
