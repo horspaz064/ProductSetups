@@ -1,1 +1,79 @@
 <h1>Hello - Add</h1>
+
+<div class="container mt-5">
+  <!-- Add Image Page -->
+  <div class="form-section">
+      <h5>Add Image Page</h5>
+      <form>
+          <div class="form-group">
+              <label for="file">File</label>
+              <input type="file" class="form-control-file" id="file">
+          </div>
+          <button type="button" class="btn btn-link" id="removeImage">Remove</button>
+          <button type="button" class="btn btn-link" id="addImage">Add</button>
+      </form>
+  </div>
+
+  <!-- Not For Sale Popup -->
+  <div class="popup" id="notForSalePopup">
+      <h5>Not For Sale Popup</h5>
+      <p>Please enter <span id="itemNamePlaceholder"></span> to not for sale</p>
+      <input type="text" class="form-control mb-2" id="itemInput" placeholder="Enter item name">
+      <button type="button" class="btn btn-secondary" id="cancelPopup">Cancel</button>
+      <button type="button" class="btn btn-danger" id="confirmNotForSale">Not for sale</button>
+  </div>
+
+  <!-- Create Item Page -->
+  <div class="form-section">
+      <h5>Create Item Page</h5>
+      <form>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="category">Category</label>
+                  <select class="form-control" id="category">
+                      <option>Choose...</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="subCategory">Sub Category</label>
+                  <select class="form-control" id="subCategory">
+                      <option>Choose...</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="productName">Product Name</label>
+                  <select class="form-control" id="productName">
+                      <option>Choose...</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="itemCode">Item Code</label>
+                  <input type="text" class="form-control" id="itemCode">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-4">
+                  <label for="ram">RAM</label>
+                  <select class="form-control" id="ram">
+                      <option>Choose...</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="cpu">CPU</label>
+                  <select class="form-control" id="cpu">
+                      <option>Choose...</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="color">Color</label>
+                  <select class="form-control" id="color">
+                      <option>Choose...</option>
+                  </select>
+              </div>
+          </div>
+          <button type="button" class="btn btn-primary" id="saveItem">Save</button>
+      </form>
+  </div>
+</div>

@@ -1,1 +1,61 @@
-<h1>Hello - Create New Item</h1>
+<div class="container mt-5 my-5">
+  <button class="btn btn-primary mb-5 px-5 py-3 my-5 " id="createNewItem" routerLink="/createitempage">Create New Item</button>
+  <table class="table table-bordered text-center">
+      <thead class="thead-dark border-2">
+          <tr>
+              <th>Product Name</th>
+              <th>Item Name</th>
+              <th>Item Code</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Laptop</td>
+              <td>Laptop RAM 16 HD 1T Color Gray</td>
+              <td></td>
+              <td>
+                  <button class="btn btn-outline-primary border-2 btn-sm px-3 py-2 me-2">Manage Image</button>
+                  <button class="btn btn-outline-warning border-2 btn-sm px-3 py-2 me-2">Edit</button>
+                  <button class="btn btn-outline-danger border-2 btn-sm px-3 py-2">Not For Sale</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+  <!-- =====> Add Image Page <===== -->
+
+  <div class="container my-5 mt-5">
+    <div class="row">
+
+      <!-- Add Image Page -->
+      <div class="col-md-6">
+        <div class="form-section">
+          <h5>Add Image Page</h5>
+          <form class="border border-2 px-5 py-3 my-3">
+              <div class="form-group my-3">
+                  <label for="file">File </label>
+                  <input type="file" class="form-control-file" id="file">
+              </div>
+              <button type="button" class="btn btn-link" id="removeImage">Remove</button>
+              <button type="button" class="btn btn-link" id="addImage">Add</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Not For Sale Popup -->
+      <div class="col-md-6">
+        <div class="popup" id="notForSalePopup">
+            <h5>Not For Sale Popup</h5>
+            <div class="border border-2 my-3 px-5 py-3">
+              <p>Please enter <span id="itemNamePlaceholder"></span> to not for sale</p>
+              <input type="text" class="form-control mb-2" id="itemInput" placeholder="Enter item name">
+              <button type="button" class="btn btn-secondary px-3 py-2 me-2 my-3" id="cancelPopup">Cancel</button>
+              <button type="button" class="btn btn-danger px-3 py-2 my-3" id="confirmNotForSale">Not for sale</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
