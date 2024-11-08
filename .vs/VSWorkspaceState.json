@@ -3,12 +3,12 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\create-new-item",
-    "\\src\\app\\create-new-item\\add-image-page",
-    "\\src\\app\\create-new-item\\create-item-page",
-    "\\src\\app\\create-new-item\\not-for-sale-popup",
-    "\\src\\app\\new-product-template\\new-template"
+    "\\src\\app\\new-category",
+    "\\src\\app\\new-product-template",
+    "\\src\\app\\new-product-template\\new-template",
+    "\\src\\app\\new-sub-category\\child-sub-category",
+    "\\src\\app\\service"
   ],
-  "SelectedNode": "\\src\\app\\create-new-item\\not-for-sale-popup\\not-for-sale-popup.component.html",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\src\\app\\new-product-template\\new-product-template.component.html",
+  "PreviewInSolutionExplorer": true
 }

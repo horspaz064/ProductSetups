@@ -46,3 +46,11 @@
 .field {
   margin-bottom: 10px; /* Space between fields */
 }
+
+
+.dropdown{
+  width: auto;
+  height: auto;
+  background-color: pink;
+  display: none;
+}

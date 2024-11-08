@@ -117,4 +117,6 @@ export class NewSubCategory {
     this.productNameToDisable = '';
     this.productToDisable = null;
   }
+
+  
 }

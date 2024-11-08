@@ -3,16 +3,15 @@ import { Router } from '@angular/router';
 import { SubproductsService } from '../../service/subcategory.service';
 import { ProductService } from '../../service/product.service';
 
-
 declare var $: any;
 
 @Component({
   selector: 'app-child-new-sub',
   templateUrl: './child-sub-category.component.html',
-  styleUrl: './child-sub-category.component.css'
+  styleUrls: ['./child-sub-category.component.css']
 })
 export class ChildNewSubCategory implements OnInit {
- 
+
   @Input() products: {
     Category: string;
     Numeric: string;
@@ -22,24 +21,10 @@ export class ChildNewSubCategory implements OnInit {
       value: string;
     }[];
     disabled?: boolean;
-    isSelected: any
+    isSelected: boolean;
   }[] = [];
 
-
-  loadProducts() {
-    this.products = this.productService.getProducts();
-  }
-
-
-  // Getter to retrieve selected categories
- get selectedCategories(): string {
-    return this.products
-        .filter(product => product.isSelected)  // Only include checked items
-        .map(product => product.Category)
-        .join(', ');
-}
-
-
+  selectedCategories: string = '';  // Store the selected categories as a string
 
   SubCategory: string = '';
   Numeric: string = '';
@@ -55,64 +40,99 @@ export class ChildNewSubCategory implements OnInit {
     { name: 'Textarea' }
   ];
 
-  constructor(private subproductService: SubproductsService, private router: Router, private productService: ProductService,) { }
+  constructor(
+    private subproductService: SubproductsService,
+    private router: Router,
+    private productService: ProductService
+  ) { }
 
   ngOnInit() {
     const state = history.state;
     if (state && state.product) {
-        this.SubCategory = state.product.SubCategory;
-        this.Numeric = state.product.Numeric;
-        this.droppedItems = state.product.droppedItems || [];
-        this.products = state.product.products || [];  // Load saved products with isSelected status
-        this.isEditMode = true;
-        this.productIndex = this.subproductService.getsubproducts().findIndex(prod =>
-            prod.SubCategory === this.SubCategory && prod.Numeric === this.Numeric
-        );
+      this.SubCategory = state.product.SubCategory;
+      this.Numeric = state.product.Numeric;
+      this.droppedItems = state.product.droppedItems || [];
+      this.products = state.product.products || [];  // Load saved products with isSelected status
+      this.isEditMode = true;
+      this.productIndex = this.subproductService.getsubproducts().findIndex(prod =>
+        prod.SubCategory === this.SubCategory && prod.Numeric === this.Numeric
+      );
     }
     this.jquery();
     this.loadProducts();
-}
+  }
 
- 
+  loadProducts() {
+    this.products = this.productService.getProducts();
+  }
 
-  
+  updateSelectedCategories(): void {
+    const selectedCategoryNames = this.products
+      .filter(product => product.isSelected)  // Only include checked items
+      .map(product => product.Category);  // Extract the category names
+    this.selectedCategories = selectedCategoryNames.join(', ');  // Join them as a string
+  }
+
+  // Call this method whenever a product is selected/deselected
+  toggleProductSelection(product: any): void {
+    product.isSelected = !product.isSelected;
+    this.updateSelectedCategories();  // Update the selected categories list
+  }
+
   addProduct() {
     this.submitted = true;
     if (this.SubCategory === '') {
-        return;
+      return;
     }
-
-    // Check for duplicates
+  
     const existingProduct = this.subproductService.getsubproducts().find(
-        prod => prod.SubCategory === this.SubCategory && prod.Numeric === this.Numeric
+      prod => prod.SubCategory === this.SubCategory && prod.Numeric === this.Numeric
     );
-
-    if (existingProduct && !this.isEditMode) { // Check for duplicates only in add mode
-        this.duplicateCategory = true;
-        alert("Name is already taken!")
-        return;
+  
+    if (existingProduct && !this.isEditMode) {
+      this.duplicateCategory = true;
+      alert("Name is already taken!");
+      return;
     } else {
-        this.duplicateCategory = false;
+      this.duplicateCategory = false;
     }
-
-    const newProduct = {
+  
+    // Filter selected categories and map subcategories
+    const selectedProducts = this.products
+      .filter(product => product.isSelected)
+      .map(product => ({
+        Category: product.Category,
         SubCategory: this.SubCategory,
-        Numeric: this.Numeric,
-        droppedItems: this.droppedItems,
-        products: this.products  // Include products array to save isSelected status
+        Numeric: product.Numeric
+      }));
+  
+    // Save selected categories to localStorage
+    localStorage.setItem('selectedCategories', JSON.stringify(selectedProducts));
+  
+    // Create a new product with the selected categories
+    const newProduct = {
+      SubCategory: this.SubCategory,
+      Numeric: this.Numeric,
+      droppedItems: this.droppedItems,
+      selectedProducts
     };
-
+  
+    // Update or add the product
     if (this.isEditMode && this.productIndex !== null) {
-        this.subproductService.updateProduct(this.productIndex, newProduct);
+      this.subproductService.updateProduct(this.productIndex, newProduct);
     } else {
-        this.subproductService.addProduct(newProduct);
+      this.subproductService.addProduct(newProduct);
     }
-
-    localStorage.setItem('subproducts', JSON.stringify(this.subproductService.getsubproducts()));
+  
+    // Clear selected categories
+    this.selectedCategories = '';
+    this.products.forEach(product => product.isSelected = false);
+  
+    // Reset the form
     this.resetForm();
     this.router.navigate(['/creatednewsubcategory']);
-}
-
+  }
+  
 
 
   removeItem(index: number) {
@@ -143,9 +163,6 @@ export class ChildNewSubCategory implements OnInit {
     }
   }
 
-
-  
-
   onDragOver(event: DragEvent) {
     event.preventDefault();
   }
@@ -169,5 +186,11 @@ export class ChildNewSubCategory implements OnInit {
     return `droppedItems_${this.SubCategory}_${this.Numeric}`;
   }
 }
+
+
+
+
+
+
 
 
