@@ -51,9 +51,11 @@ const routes: Routes = [
   {
     path: "createitempage",
     component: CreateItemPageComponent
+  },
+  {
+    path: "create-new-product",
+    component: NewProductTemplateComponent
   }
-
-
 
 ];
 
