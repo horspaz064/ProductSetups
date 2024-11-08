@@ -1,12 +1,16 @@
 <div class="container mt-4">
+<<<<<<< HEAD
   <h2 class="mb-4">Create-New-Sub-Category</h2>
+=======
+  <h2 class="mb-4 my-5 fw-bold text-center">Create Sub Category Template Page</h2>
+>>>>>>> c725e8afa606eb8e65ef75ade2dfc1c126174fb4
   <!-- Category Input -->
   <div class="mb-3 row">
 
     <div class="col-6">
       <div class="row">
         <div class="col-11">
-  
+
           <input
   [value]="selectedCategories"
   class="form-control"
@@ -30,13 +34,13 @@
 
 
     <div class="col-6">
-      <input 
-    type="text" 
-    [(ngModel)]="SubCategory" 
-    class="form-control" 
+      <input
+    type="text"
+    [(ngModel)]="SubCategory"
+    class="form-control"
     placeholder="Category"
     [ngClass]="{ 'bg-danger text-white': duplicateCategory || (submitted && SubCategory === '') }"
-    [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && SubCategory === '' ? 'Please input' : 'SubCategory')" 
+    [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && SubCategory === '' ? 'Please input' : 'SubCategory')"
 />
     </div>
   </div>
@@ -44,10 +48,10 @@
 
   <!-- Action Buttons -->
   <div class="mb-4">
-    <button class="btn btn-secondary me-2">
-      <a routerLink="/creatednewsubcategory" routerLinkActive="active" class="text-white text-decoration-none">Cancel</a>
+    <button class="btn btn-secondary me-2 px-3 py-2">
+      <a routerLink="/creatednewsubcategory" class="text-white text-decoration-none">Cancel</a>
     </button>
-    <button (click)="addProduct()" class="btn btn-primary">{{ isEditMode ? 'Update' : 'Save' }}</button>
+    <button (click)="addProduct()" class="btn btn-primary px-3 py-2">{{ isEditMode ? 'Update' : 'Save' }}</button>
   </div>
 
   <div class="row mt-5">
@@ -96,9 +100,11 @@
     </div>
   </div>
 
- 
 
 
+<<<<<<< HEAD
 
 
   
+=======
+>>>>>>> c725e8afa606eb8e65ef75ade2dfc1c126174fb4

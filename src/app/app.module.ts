@@ -33,7 +33,8 @@ import { NotForSaleComponent } from './create-new-item/not-for-sale-popup/not-fo
     CreateNewProductComponent,
     CreateNewItemComponent,
     AddImagePageComponent,
-    NotForSaleComponent
+    NotForSaleComponent,
+    
   ],
   imports: [
     BrowserModule,

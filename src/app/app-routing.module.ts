@@ -8,6 +8,7 @@ import { CreateNewProductComponent } from './create-new-product/create-new-produ
 import { NewCategoryComponent } from './new-category/new-category.component';
 import { CreateNewCategoryComponent } from './new-category/create-new-category/create-new-category.component';
 import { CreateNewItemComponent } from './create-new-item/create-new-item.component';
+import { CreateItemPageComponent } from './create-new-item/create-item-page/create-item-page.component';
 
 const routes: Routes = [
   {
@@ -44,11 +45,17 @@ const routes: Routes = [
     component:CreateNewProductComponent
   },
   {
-    path: "customers",
+    path: "items",
     component: CreateNewItemComponent
+  },
+  {
+    path: "createitempage",
+    component: CreateItemPageComponent
+  },
+  {
+    path: "create-new-product",
+    component: NewProductTemplateComponent
   }
-
-
 
 ];
 
