@@ -1,59 +1,58 @@
-
-
-<h1>Product Template List</h1>
-<div class="mb-4 mt-5">
-  <!-- Create New Product Template Button -->
-  <button class="btn btn-primary px-5 py-3 my-5">
-    <a routerLink="/newtemplatedpage" class="text-white text-decoration-none">Create New Product Template</a>
-  </button>
-</div>
-<!-- Product List -->
-<div *ngFor="let templateproduct of templateproducts" class="border p-3 mb-2 d-flex justify-content-between align-items-center">
-  <div class="me-auto">
-    <span class="fw-bold"> {{ templateproduct.templatecategory }}</span>
-  </div>
-  <div>
-    <button (click)="cloneProduct(templateproduct)"
-            class="btn btn-outline-primary me-2"
-            [disabled]="templateproduct.disabled"
-            [style.opacity]="templateproduct.disabled ? 0.5 : 1">
-      Clone
-    </button>
-    <button (click)="editProduct(templateproduct)"
-            class="btn btn-outline-success me-2"
-            [disabled]="templateproduct.disabled"
-            [style.opacity]="templateproduct.disabled ? 0.5 : 1">
-      Edit
-    </button>
-    <button (click)="disableProduct(templateproduct)"
-            class="btn btn-outline-danger"
-            [disabled]="templateproduct.disabled">
-      Disable
+<div class="container">
+<!-- <h1>Product Template List</h1> -->
+  <div class="mb-4 mt-5">
+    <!-- Create New Product Template Button -->
+    <button class="btn btn-primary px-5 py-3 my-5 text-white text-decoration-none" routerLink="/newtemplatedpage">
+      Create New Product Template
     </button>
   </div>
-</div>
+  <!-- Product List -->
+  <div *ngFor="let templateproduct of templateproducts" class="border p-3 mb-2 d-flex justify-content-between align-items-center">
+    <div class="me-auto">
+      <span class="fw-bold"> {{ templateproduct.templatecategory }}</span>
+    </div>
+    <div>
+      <button (click)="cloneProduct(templateproduct)"
+              class="btn btn-outline-primary me-2 px-3 py-2 border border-2 border-primary"
+              [disabled]="templateproduct.disabled"
+              [style.opacity]="templateproduct.disabled ? 0.5 : 1">
+        Clone
+      </button>
+      <button (click)="editProduct(templateproduct)"
+              class="btn btn-outline-warning me-2 px-3 py-2 border border-2 border-warning"
+              [disabled]="templateproduct.disabled"
+              [style.opacity]="templateproduct.disabled ? 0.5 : 1">
+        Edit
+      </button>
+      <button (click)="disableProduct(templateproduct)"
+              class="btn btn-outline-danger px-3 py-2 border border-2 border-danger"
+              [disabled]="templateproduct.disabled">
+        Disable
+      </button>
+    </div>
+  </div>
 
-<!-- Disable Modal -->
-<div *ngIf="isDisableModalVisible" class="modal fade show d-block" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Disable Product</h5>
-        <button type="button" class="btn-close" (click)="resetDisableModal()" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Type the product name to confirm disabling:</p>
-        <input type="text"
-               class="form-control"
-               [(ngModel)]="productNameToDisable"
-               placeholder="Enter product name" />
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" (click)="resetDisableModal()">Cancel</button>
-        <button class="btn btn-danger" (click)="confirmDisable()">Confirm</button>
+  <!-- Disable Modal -->
+  <div *ngIf="isDisableModalVisible" class="modal fade show d-block" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Disable Product</h5>
+          <button type="button" class="btn-close" (click)="resetDisableModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Type the product name to confirm disabling:</p>
+          <input type="text"
+                 class="form-control"
+                 [(ngModel)]="productNameToDisable"
+                 placeholder="Enter product name" />
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" (click)="resetDisableModal()">Cancel</button>
+          <button class="btn btn-danger" (click)="confirmDisable()">Confirm</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 

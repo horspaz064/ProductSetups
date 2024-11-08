@@ -1,16 +1,11 @@
 <div class="container mt-4">
-<<<<<<< HEAD
-  <h2 class="mb-4">Create-New-Sub-Category</h2>
-=======
   <h2 class="mb-4 my-5 fw-bold text-center">Create Sub Category Template Page</h2>
->>>>>>> c725e8afa606eb8e65ef75ade2dfc1c126174fb4
   <!-- Category Input -->
-  <div class="mb-3 row">
+  <div class="mb-3 row my-5">
 
     <div class="col-6">
       <div class="row">
         <div class="col-11">
-
           <input
   [value]="selectedCategories"
   class="form-control"
@@ -31,8 +26,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="col-6">
       <input
     type="text"
@@ -45,13 +38,12 @@
     </div>
   </div>
 
-
   <!-- Action Buttons -->
-  <div class="mb-4">
-    <button class="btn btn-secondary me-2 px-3 py-2">
-      <a routerLink="/creatednewsubcategory" class="text-white text-decoration-none">Cancel</a>
+  <div class="mb-4 d-flex justify-content-end">
+    <button class="btn btn-secondary me-2 px-3 py-2 text-white text-decoration-none" routerLink="/creatednewsubcategory">
+      Cancel
     </button>
-    <button (click)="addProduct()" class="btn btn-primary px-3 py-2">{{ isEditMode ? 'Update' : 'Save' }}</button>
+    <button (click)="addProduct()" class="btn btn-primary px-3 py-2 me-3">{{ isEditMode ? 'Update' : 'Save' }}</button>
   </div>
 
   <div class="row mt-5">
@@ -99,12 +91,3 @@
       </div>
     </div>
   </div>
-
-
-
-<<<<<<< HEAD
-
-
-  
-=======
->>>>>>> c725e8afa606eb8e65ef75ade2dfc1c126174fb4

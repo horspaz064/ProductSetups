@@ -1,8 +1,8 @@
 <div class="container mt-4">
-  <h2 class="mb-4 text-center fw-bold">Create New Product Template Page</h2>
+  <h2 class="mb-4 text-center fw-bold my-5">Create New Product Template Page</h2>
 
   <!-- Category Input -->
-  <div class="mb-3">
+  <div class="mb-3 my-5">
     <input
       type="text"
       [(ngModel)]="Category"
@@ -13,14 +13,14 @@
   </div>
 
   <!-- Action Buttons -->
-  <div class="mb-4">
+  <div class="mb-4 d-flex justify-content-end">
     <button class="btn btn-secondary me-2 px-3 py-2">
       <a routerLink="/creatednewcategory" class="text-white text-decoration-none">Cancel</a>
     </button>
-    <button (click)="addProduct()" class="btn btn-primary px-3 py-2">{{ isEditMode ? 'Update' : 'Save' }}</button>
+    <button (click)="addProduct()" class="btn btn-primary px-3 py-2 me-3">{{ isEditMode ? 'Update' : 'Save' }}</button>
   </div>
 
-  <div class="row mt-5">
+  <div class="row mt-5 ">
     <!-- Control Panel -->
     <div class="col-md-6 card p-3">
       <h4>Control</h4>
@@ -67,10 +67,10 @@
   </div>
 
   <!-- Footer Buttons -->
-  <div class="mt-4">
+  <div class="mt-4 d-flex justify-content-end">
     <button class="btn btn-secondary me-2 px-3 py-2">
       <a routerLink="/creatednewcategory" class="text-white text-decoration-none">Cancel</a>
     </button>
-    <button (click)="addProduct()" class="btn btn-primary px-3 py-2">{{ isEditMode ? 'Update' : 'Save' }}</button>
+    <button (click)="addProduct()" class="btn btn-primary px-3 py-2 me-2">{{ isEditMode ? 'Update' : 'Save' }}</button>
   </div>
 </div>
