@@ -1,15 +1,66 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, Input, OnInit } from "@angular/core"
 import { Router } from "@angular/router";
 import { secondproductervice } from "../../service/product.service";
-
+import { ProductService } from "../../service/category.service";
+import { SubproductsService } from "../../service/subcategory.service";
+import { templateproductService } from "../../service/templatecategory.service";
+declare var $:any
 @Component({
   selector: "created-new-product-page",
-  templateUrl: "./created-new-product-page.component.html"
+  templateUrl: "./created-new-product-page.component.html",
+  styleUrl: "./created-new-product-page.component.css"
 })
 export class CreatednewproductpageComponent implements OnInit {
+   
+  
+  @Input() products: {
+    Category: string;
+    Numeric: string;
+    droppedItems: {
+      field: string;
+      model: 'Category' | 'Numeric' | 'Textarea';
+      value: string;
+    }[];
+    disabled?: boolean;
+    isSelected: boolean;
+  }[] = [];
+
+  selectedCategories: string = '' 
+
+  @Input() subproducts: {
+    SubCategory: string;
+    Numeric: string;
+    droppedItems: {
+      field: string;
+      model: 'Category' | 'Numeric' | 'Textarea';
+      value: string;
+    }[];
+    disabled?: boolean;
+    isSelected: boolean;
+  }[] = [];
+
+  selectedSubCategories: string = ''
+
+  @Input() templateproducts: {
+    templatecategory: string ;
+    Numeric: string;
+    droppedItems: { 
+      field: string; 
+      model: 'templatecategory' | 'Numeric' | 'Textarea'; 
+      value: string 
+    }[];
+    disabled?: boolean;
+    isSelected: boolean
+  }[] = [];
+
+  selectedTemplateCategories: string = ''
+
 
   Category: string = '';
   Numeric: string = '';
+  category1: any []= [];
+  subcategory2: string = '';
+
   droppedItems: { field: string; model: 'Category' | 'Numeric' | 'Textarea'; value: string }[] = [];
   isEditMode = false;
   productIndex: number | null = null;
@@ -22,46 +73,32 @@ export class CreatednewproductpageComponent implements OnInit {
     { name: 'Textarea' }
   ];
 
-  constructor(private secondproduct: secondproductervice, private router: Router) {}
+  constructor(
+    private secondproduct: secondproductervice,
+    private productService: ProductService,
+    private subproductService: SubproductsService,
+    private templatecategoryService: templateproductService,
+    private router: Router) {}
 
   ngOnInit() {
     const state = history.state;
     if (state && state.product) {
       this.Category = state.product.Category;
       this.Numeric = state.product.Numeric;
-      this.droppedItems = state.product.droppedItems || [];
       this.isEditMode = true;
       this.productIndex = this.secondproduct. getsecondproduct().findIndex(prod =>
         prod.Category === this.Category && prod.Numeric === this.Numeric
       );
     }
+    this.jquery();
+    this.loaditem();
   }
 
-  onDragStart(event: DragEvent, control: { name: string }) {
-    if (event.dataTransfer) {
-      event.dataTransfer.setData('text/plain', control.name);
-    }
+  loaditem(){
+    this.products = this.productService.getProducts(),
+    this.subproducts = this.subproductService.getsubproducts(),
+    this.templateproducts = this.templatecategoryService.getCategoryData()
   }
-
-  onDragOver(event: DragEvent) {
-    event.preventDefault();
-  }
-
-  onDrop(event: DragEvent) {
-    event.preventDefault();
-    const fieldName = event.dataTransfer?.getData('text/plain') as "Category" | "Numeric" | "Textarea";
-
-    if (fieldName) {
-      let value = '';
-      if (fieldName === 'Category') value = this.Category;
-      if (fieldName === 'Numeric' || fieldName === 'Textarea') value = this.Numeric;
-
-      this.droppedItems.push({ field: fieldName, model: fieldName, value });
-
-      localStorage.setItem(this.getDroppedItemsKey(), JSON.stringify(this.droppedItems));
-    }
-  }
-
   addProduct() {
     this.submitted = true;
 
@@ -69,7 +106,7 @@ export class CreatednewproductpageComponent implements OnInit {
       return;
     }
 
-    const isDuplicate = !this.isEditMode && this.secondproduct. getsecondproduct().some(prod => prod.Category === this.Category);
+    const isDuplicate = !this.isEditMode && this.secondproduct.getsecondproduct().some(prod => prod.Category === this.Category);
 
     if (isDuplicate) {
       this.duplicateCategory = true;
@@ -109,9 +146,58 @@ export class CreatednewproductpageComponent implements OnInit {
   resetForm() {
     this.Category = '';
     this.Numeric = '';
-    this.droppedItems = [];
     this.submitted = false;
     this.duplicateCategory = false;
     localStorage.removeItem(this.getDroppedItemsKey());
   }
+
+  jquery() {
+    $(document).ready(function () {
+      $(".btn").click(function () {
+        $(".dropdown").slideToggle(0);
+      })
+    })
+  }
+
+  
+  updateSelectedCategories(): void {
+    const selectedCategoryNames = this.products
+      .filter(product => product.isSelected)  // Only include checked items
+      .map(product => product.Category);  // Extract the category names
+    this.selectedCategories = selectedCategoryNames.join(', ');  // Join them as a string
+  }
+
+  // Call this method whenever a product is selected/deselected
+  toggleProductSelection(product: any): void {
+    product.isSelected = !product.isSelected;
+    this.updateSelectedCategories();  // Update the selected categories list
+  }
+
+  updateSelectedSubCategories(): void {
+    const selectedSubCategoryNames = this.subproducts
+      .filter(subproducts => subproducts.isSelected)  // Only include checked items
+      .map(subproducts => subproducts.SubCategory);  // Extract the category names
+    this.selectedSubCategories = selectedSubCategoryNames.join(', ');  // Join them as a string
+  }
+
+  // Call this method whenever a product is selected/deselected
+  toggleSubProductSelection(subproducts: any): void {
+    subproducts.isSelected = !subproducts.isSelected;
+    this.updateSelectedCategories();  // Update the selected categories list
+  }
+
+
+  updateSelectedTemplateCategories(): void {
+    const selectedTemplateCategoryNames = this.templateproducts
+      .filter(templateproducts => templateproducts.isSelected)  // Only include checked items
+      .map(templateproducts => templateproducts.templatecategory);  // Extract the category names
+    this.selectedTemplateCategories = selectedTemplateCategoryNames.join(', ');  // Join them as a string
+  }
+
+  // Call this method whenever a product is selected/deselected
+  toggleTemplateProductSelection(templateproducts: any): void {
+    templateproducts.isSelected = !templateproducts.isSelected;
+    this.updateSelectedCategories();  // Update the selected categories list
+  }
+
 }

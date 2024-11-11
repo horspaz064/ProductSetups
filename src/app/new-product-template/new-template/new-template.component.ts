@@ -44,7 +44,11 @@ export class NewTemplateComponent implements OnInit {
 
   templatecategory: string = '';
   Numeric: string = '';
-  droppedItems: { field: string; model: 'templatecategory' | 'Numeric' | 'Textarea'; value: string }[] = [];
+  droppedItems: { 
+    field: string; 
+    model: 'templatecategory' | 'Numeric' | 'Textarea'; 
+    value: string 
+  }[] = [];
   isEditMode = false;
   productIndex: number | null = null;
   submitted: boolean = false;

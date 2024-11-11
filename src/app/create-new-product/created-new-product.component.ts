@@ -19,6 +19,7 @@ export class CreatenewproductComponent implements OnInit {
     disabled?: boolean;
   }[] = [];
 
+
   constructor(private secondproduct: secondproductervice, private router: Router) {}
 
   ngOnInit() {
@@ -38,7 +39,7 @@ export class CreatenewproductComponent implements OnInit {
       value: string;
     }[];
   }) {
-    this.router.navigate(['/createnewcategory'], {
+    this.router.navigate(['/created-new-product-page'], {
       state: { product }
     });
   }
