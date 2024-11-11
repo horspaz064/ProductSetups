@@ -3,12 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\new-category",
-    "\\src\\app\\new-product-template",
-    "\\src\\app\\new-product-template\\new-template",
-    "\\src\\app\\new-sub-category\\child-sub-category",
-    "\\src\\app\\service"
+    "\\src\\app\\create-new-product",
+    "\\src\\app\\create-new-product\\create-new-product-page",
+    "\\src\\app\\create-new-product\\create-new-product-page\\product-template-field",
+    "\\src\\app\\create-new-product\\create-new-product-page\\product-template-field\\product-picture",
+    "\\src\\app\\create-new-product\\create-new-product-page\\product-template-field\\product-picture\\product-varian"
   ],
-  "SelectedNode": "\\src\\app\\new-product-template\\new-product-template.component.html",
   "PreviewInSolutionExplorer": true
 }

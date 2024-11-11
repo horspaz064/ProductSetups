@@ -13,10 +13,15 @@ import { NewSubCategory } from './new-sub-category/new-sub-category.component';
 import { ChildNewSubCategory } from './new-sub-category/child-sub-category/child-sub-category.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CreateNewProductComponent } from './create-new-product/create-new-product-page/create-new-product.component';
 import { CreateNewItemComponent } from './create-new-item/create-new-item.component';
 import { AddImagePageComponent } from './create-new-item/add-image-page/add-image-page.component';
 import { NotForSaleComponent } from './create-new-item/not-for-sale-popup/not-for-sale-popup.component';
+import { CreatenewproductComponent } from './create-new-product/created-new-product.component';
+import { CreatednewproductpageComponent } from './create-new-product/create-new-product-page/created-new-product-page.component';
+import { ProducttemplatefieldComponent } from './create-new-product/create-new-product-page/product-template-field/product-template-field.component';
+import { ProductpictureComponent } from './create-new-product/create-new-product-page/product-template-field/product-picture/product-picture.component';
+import { ProductvarianComponent } from './create-new-product/create-new-product-page/product-template-field/product-picture/product-varian/product-varian.component';
+
 
 @NgModule({
   declarations: [
@@ -28,12 +33,14 @@ import { NotForSaleComponent } from './create-new-item/not-for-sale-popup/not-fo
     ChildNewSubCategory,
     NewProductTemplateComponent,
     NewTemplateComponent,
-
-    //===>( 7,11,2024 ) Heng Add ---->
-    CreateNewProductComponent,
     CreateNewItemComponent,
     AddImagePageComponent,
     NotForSaleComponent,
+    CreatenewproductComponent,
+    CreatednewproductpageComponent,
+    ProducttemplatefieldComponent,
+    ProductpictureComponent,
+    ProductvarianComponent
     
   ],
   imports: [

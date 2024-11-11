@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "E:\\Project-Two\\ProductSetups\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\service\\templatecategory.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\service\\templatecategory.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\create-new-product\\created-new-product.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\create-new-product\\created-new-product.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\new-category\\new-category.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\new-category\\new-category.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\create-new-product\\created-new-product.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\create-new-product\\created-new-product.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\new-product-template\\new-product-template.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\new-product-template\\new-product-template.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\create-new-product\\create-new-product-page\\product-template-field\\product-picture\\product-varian\\product-varian.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\create-new-product\\create-new-product-page\\product-template-field\\product-picture\\product-varian\\product-varian.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\new-product-template\\new-product-template.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\new-product-template\\new-product-template.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-template\\new-template.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\new-category\\new-category.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\new-category\\new-category.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\new-sub-category\\new-sub-category.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\new-sub-category\\new-sub-category.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project-Two\\ProductSetups\\src\\app\\new-sub-category\\child-sub-category\\child-sub-category.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
@@ -62,11 +62,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "app.component.ts",
+              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\app.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\app.component.ts",
+              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\app.component.ts",
+              "RelativeToolTip": "src\\app\\app.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-11-08T07:39:06.413Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "new-product-template.component.html",
+              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.html",
+              "RelativeDocumentMoniker": "src\\app\\new-product-template\\new-product-template.component.html",
+              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.html",
+              "RelativeToolTip": "src\\app\\new-product-template\\new-product-template.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-11-08T01:03:25.149Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "created-new-product.component.html",
+              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\create-new-product\\created-new-product.component.html",
+              "RelativeDocumentMoniker": "src\\app\\create-new-product\\created-new-product.component.html",
+              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\create-new-product\\created-new-product.component.html",
+              "RelativeToolTip": "src\\app\\create-new-product\\created-new-product.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-11-11T02:56:46.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "created-new-product.component.ts",
+              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\create-new-product\\created-new-product.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\create-new-product\\created-new-product.component.ts",
+              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\create-new-product\\created-new-product.component.ts",
+              "RelativeToolTip": "src\\app\\create-new-product\\created-new-product.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-11-11T02:56:48.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "product-varian.component.ts",
+              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\create-new-product\\create-new-product-page\\product-template-field\\product-picture\\product-varian\\product-varian.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\create-new-product\\create-new-product-page\\product-template-field\\product-picture\\product-varian\\product-varian.component.ts",
+              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\create-new-product\\create-new-product-page\\product-template-field\\product-picture\\product-varian\\product-varian.component.ts",
+              "RelativeToolTip": "src\\app\\create-new-product\\create-new-product-page\\product-template-field\\product-picture\\product-varian\\product-varian.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-11-11T01:55:20.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "new-template.component.ts",
               "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-template\\new-template.component.ts",
               "RelativeDocumentMoniker": "src\\app\\new-product-template\\new-template\\new-template.component.ts",
@@ -74,51 +145,11 @@
               "RelativeToolTip": "src\\app\\new-product-template\\new-template\\new-template.component.ts",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-11-08T01:03:40.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T01:03:40.724Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "new-product-template.component.ts",
-              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\new-product-template\\new-product-template.component.ts",
-              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.ts",
-              "RelativeToolTip": "src\\app\\new-product-template\\new-product-template.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-11-08T01:03:27.214Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "templatecategory.service.ts",
-              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\service\\templatecategory.service.ts",
-              "RelativeDocumentMoniker": "src\\app\\service\\templatecategory.service.ts",
-              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\service\\templatecategory.service.ts",
-              "RelativeToolTip": "src\\app\\service\\templatecategory.service.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-11-08T01:03:43.942Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "new-product-template.component.html",
-              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.html",
-              "RelativeDocumentMoniker": "src\\app\\new-product-template\\new-product-template.component.html",
-              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.html",
-              "RelativeToolTip": "src\\app\\new-product-template\\new-product-template.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-11-08T01:03:25.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "new-product-template.component.css",
               "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\new-product-template\\new-product-template.component.css",
               "RelativeDocumentMoniker": "src\\app\\new-product-template\\new-product-template.component.css",
@@ -126,25 +157,11 @@
               "RelativeToolTip": "src\\app\\new-product-template\\new-product-template.component.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-03T04:20:01.233Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-03T04:20:01.233Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "new-category.component.ts",
-              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\new-category\\new-category.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\new-category\\new-category.component.ts",
-              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\new-category\\new-category.component.ts",
-              "RelativeToolTip": "src\\app\\new-category\\new-category.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-11-08T01:13:36.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "new-category.component.html",
               "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\new-category\\new-category.component.html",
               "RelativeDocumentMoniker": "src\\app\\new-category\\new-category.component.html",
@@ -152,12 +169,11 @@
               "RelativeToolTip": "src\\app\\new-category\\new-category.component.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-11-08T01:21:13.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T01:21:13.722Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "new-category.component.css",
               "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\new-category\\new-category.component.css",
               "RelativeDocumentMoniker": "src\\app\\new-category\\new-category.component.css",
@@ -165,21 +181,7 @@
               "RelativeToolTip": "src\\app\\new-category\\new-category.component.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-08T01:21:17.792Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "new-sub-category.component.ts",
-              "DocumentMoniker": "E:\\Project-Two\\ProductSetups\\src\\app\\new-sub-category\\new-sub-category.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\new-sub-category\\new-sub-category.component.ts",
-              "ToolTip": "E:\\Project-Two\\ProductSetups\\src\\app\\new-sub-category\\new-sub-category.component.ts",
-              "RelativeToolTip": "src\\app\\new-sub-category\\new-sub-category.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-11-08T01:21:23.085Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T01:21:17.792Z"
             },
             {
               "$type": "Document",
@@ -191,8 +193,7 @@
               "RelativeToolTip": "src\\app\\new-sub-category\\child-sub-category\\child-sub-category.component.ts",
               "ViewState": "AgIAABQAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-11-08T01:21:25.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T01:21:25.061Z"
             },
             {
               "$type": "Document",
@@ -204,8 +205,7 @@
               "RelativeToolTip": "src\\app\\service\\subcategory.service.ts",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-11-08T01:13:34.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T01:13:34.985Z"
             },
             {
               "$type": "Document",
@@ -217,8 +217,7 @@
               "RelativeToolTip": "src\\app\\new-product-template\\new-template\\new-template.component.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-11-08T01:03:41.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T01:03:41.248Z"
             },
             {
               "$type": "Document",
@@ -230,8 +229,7 @@
               "RelativeToolTip": "src\\app\\new-product-template\\new-template\\new-template.component.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-08T01:06:57.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T01:06:57.989Z"
             }
           ]
         }
