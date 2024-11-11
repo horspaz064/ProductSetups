@@ -1,1 +1,68 @@
-<button routerLink="/product-template-field">Product Template Field</button>
+<div class="container mt-4">
+  <h2 class="mb-4 text-center fw-bold my-5">Create New Product Template Page</h2>
+
+  <!-- Category Input -->
+  <div class="mb-3 my-5">
+    <input
+      type="text"
+      [(ngModel)]="Category"
+      class="form-control"
+      placeholder="Categoryname"
+      [ngClass]="{ 'bg-danger text-white': duplicateCategory || (submitted && Category === '') }"
+      [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && Category === '' ? 'Please input' : 'Categoryname')" />
+  </div>
+
+  <div class="row mt-5 ">
+    <!-- Control Panel -->
+    <div class="col-md-6 card p-3">
+      <h4>Control</h4>
+      <div *ngFor="let control of controlItems" class="draggable p-2 mb-2 border bg-light" draggable="true" (dragstart)="onDragStart($event, control)">
+        <label>{{ control.name }}</label>
+      </div>
+    </div>
+
+    <!-- Input Template Panel -->
+    <div class="col-md-6 card p-3" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+      <h4>Input Template</h4>
+      <div *ngFor="let item of droppedItems; let i = index" class="mb-3">
+        <ng-container *ngIf="item.field === 'Category'; else numeric">
+          <label class="form-label">{{ item.field }}</label>
+          <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+          <input type="text" class="form-control" placeholder="{{ item.field }} Input" [(ngModel)]="Category" />
+        </ng-container>
+
+        <ng-template #numeric>
+          <ng-container *ngIf="item.field === 'Numeric'; else date">
+            <label class="form-label">{{ item.field }}</label>
+            <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+            <input type="text" class="form-control" placeholder="{{ item.field }} Input" [(ngModel)]="Numeric" />
+          </ng-container>
+        </ng-template>
+
+        <ng-template #date>
+          <ng-container *ngIf="item.field === 'Date'; else textarea">
+            <label class="form-label">{{ item.field }}</label>
+            <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+            <input type="date" class="form-control">
+          </ng-container>
+        </ng-template>
+
+        <ng-template #textarea>
+          <ng-container *ngIf="item.field === 'Textarea'">
+            <label class="form-label">{{ item.field }}</label>
+            <i style="float: right" class="bi bi-x fs-4 btn-remove text-danger" (click)="removeItem(i)"></i>
+            <textarea class="form-control" rows="3"></textarea>
+          </ng-container>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Buttons -->
+  <div class="mt-4 d-flex justify-content-end">
+    <button class="btn btn-secondary me-2 px-3 py-2">
+      <a routerLink="/creatednewcategory" class="text-white text-decoration-none">Cancel</a>
+    </button>
+    <button (click)="addProduct()" class="btn btn-primary px-3 py-2 me-2">{{ isEditMode ? 'Update' : 'Save Next' }}</button>
+  </div>
+</div>

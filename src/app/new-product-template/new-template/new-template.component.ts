@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { templateproductService } from "../../service/templatecategory.service";
-import { ProductService } from "../../service/product.service";
 import { SubproductsService } from "../../service/subcategory.service";
+import { ProductService } from "../../service/category.service";
 declare var $:any
 
 @Component({
