@@ -6,12 +6,7 @@
     <div class="col-6">
       <div class="row">
         <div class="col-11">
-          <input
-  [value]="selectedCategories"
-  class="form-control"
-  placeholder="Selected Categories"
-  readonly
-/>
+            <input [value]="selectedCategories"  class="form-control" placeholder="Selected Categories" readonly/>
         </div>
         <div class="col-1">
           <i class="bi bi-arrow-down btn"></i>
@@ -21,26 +16,22 @@
         <div *ngFor="let product of products" class="border p-3 mb-2 d-flex justify-content-between align-items-center">
           <div class="me-auto check">
             <input type="checkbox" [(ngModel)]="product.isSelected" (change)="updateSelectedCategories()" />
-            <span class="fw-bold">{{ product.Category }}</span>
+              <span class="fw-bold">{{ product.Category }}</span>
           </div>
         </div>
       </div>
     </div>
     <div class="col-6">
-      <input
-    type="text"
-    [(ngModel)]="SubCategory"
-    class="form-control"
-    placeholder="Category"
-    [ngClass]="{ 'bg-danger text-white': duplicateCategory || (submitted && SubCategory === '') }"
-    [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && SubCategory === '' ? 'Please input' : 'SubCategory')"
-/>
+      <input type="text" [(ngModel)]="SubCategory" class="form-control" placeholder="Category"
+        [ngClass]="{ 'bg-danger text-white': duplicateCategory || (submitted && SubCategory === '') }"
+        [placeholder]="duplicateCategory ? 'Name already taken' : (submitted && SubCategory === '' ? 'Please input' : 'SubCategory')" />
     </div>
   </div>
 
   <!-- Action Buttons -->
   <div class="mb-4 d-flex justify-content-end">
-    <button class="btn btn-secondary me-2 px-3 py-2 text-white text-decoration-none" routerLink="/creatednewsubcategory">
+    <button class="btn btn-secondary me-2 px-3 py-2 text-white text-decoration-none"
+      routerLink="/creatednewsubcategory">
       Cancel
     </button>
     <button (click)="addProduct()" class="btn btn-primary px-3 py-2 me-3">{{ isEditMode ? 'Update' : 'Save' }}</button>
@@ -50,7 +41,8 @@
     <!-- Control Panel -->
     <div class="col-md-6 card p-3">
       <h4>Control</h4>
-      <div *ngFor="let control of controlItems" class="draggable p-2 mb-2 border bg-light" draggable="true" (dragstart)="onDragStart($event, control)">
+      <div *ngFor="let control of controlItems" class="draggable p-2 mb-2 border bg-light" draggable="true"
+        (dragstart)="onDragStart($event, control)">
         <label>{{ control.name }}</label>
       </div>
     </div>
@@ -91,3 +83,6 @@
       </div>
     </div>
   </div>
+
+
+

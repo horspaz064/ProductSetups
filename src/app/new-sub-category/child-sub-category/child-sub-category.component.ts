@@ -71,7 +71,8 @@ export class ChildNewSubCategory implements OnInit {
     const selectedCategoryNames = this.products
       .filter(product => product.isSelected)  // Only include checked items
       .map(product => product.Category);  // Extract the category names
-    this.selectedCategories = selectedCategoryNames.join(', ');  // Join them as a string
+      this.selectedCategories = selectedCategoryNames.join(', '); 
+    // Join them as a string
   }
 
   // Call this method whenever a product is selected/deselected
